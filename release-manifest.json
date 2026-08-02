@@ -32,7 +32,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "855ade0cf437159f086b34c69659b856d45c475dabb2fcd86b5ac4574acc10b7"
+      "sha256": "89b040dda9c818969b9da6b46a62e461017ab8e89cdd3b1210ec5bb7ba8437e2"
     },
     {
       "path": "SECURITY.md",
@@ -56,15 +56,19 @@
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
-      "sha256": "add45f5a8d9a29884b8559cbf8334a0fd2112b01a9769a60efa02cea84683a86"
+      "sha256": "022f2d08f33ab73980d86352f4a9b1e72b5ba6503bf94734bb3cee63a9c15d71"
     },
     {
       "path": "docs/QUICKSTART.md",
-      "sha256": "bab97ee8a5755f593dd94d6304984a84b251a5d363cf9e47ddd8cb4d2304cec3"
+      "sha256": "9068b9ce137f596ad778402c913f8a7a776f4cb2907fa06269d3ea852fb4a535"
     },
     {
       "path": "docs/REPOSITORY_BOUNDARY.md",
       "sha256": "ef8998613158e23eef62accf9eb2396730ead45ed3986f3da5bd54a4dea05dc2"
+    },
+    {
+      "path": "docs/USING_OCL.md",
+      "sha256": "40830cca07dc1500c2d79b7114f6fe81ae16909cb74c2658c9834afd025bd4b7"
     },
     {
       "path": "examples/v0/context-pack.example.json",
@@ -179,6 +183,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.51893d7e82f0",
-  "export_sha256": "51893d7e82f0a43246dcd95d5c454cde555c2228b44e7cc7c3d4a08e0866c01a"
+  "export_id": "ocl.public.v0.8c0b0a8322db",
+  "export_sha256": "8c0b0a8322db2e041143b4ddbebbd1c3f7a5b1e41dfb06ef078fde65894a5d75"
 }

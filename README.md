@@ -8,6 +8,54 @@ what relevant records and fields mean, which tempting interpretations are
 wrong, what ambiguity must be resolved, and which safety boundaries still
 apply.
 
+```text
+question -> OCL context -> AI reasoning + existing connector -> Odoo
+```
+
+## Use OCL
+
+Choose the surface that fits your product:
+
+| Route | Call | Benefit | Alpha availability |
+| --- | --- | --- | --- |
+| MCP for AI agents | `get_context`, `resolve_noun`, `explain_field` | Put scoped Odoo meaning directly in an agent's tool loop | Public example server now |
+| CLI | `get-context "What is revenue?"` | Inspect a context pack and its warnings immediately | Public examples now |
+| Python validator | `validate_entry(entry, schema)` | Read and produce interoperable OCL documents | Available now |
+| TypeScript integration | Five production operation shapes | Prepare a connector or product for the hosted runtime | Source alpha now; endpoint pending |
+
+Clone and try the context behavior:
+
+```bash
+git clone https://github.com/Nantiai/ocl-standard.git
+cd ocl-standard
+python reference/python/ocl_examples.py get-context "What is revenue?"
+```
+
+The result asks which revenue definition applies and returns the paired warning
+against treating `account.move.amount_total` as universal revenue.
+
+### Add the example MCP to an agent
+
+```json
+{
+  "mcpServers": {
+    "ocl-public-examples": {
+      "command": "python",
+      "args": [
+        "/absolute/path/to/ocl-standard/reference/python/ocl_examples.py",
+        "serve-mcp"
+      ]
+    }
+  }
+}
+```
+
+This local server demonstrates the real OCL tool contract using ten public
+candidate examples. It is not the commercial 44-entry verified runtime.
+
+See **[Using OCL](docs/USING_OCL.md)** for the integration flow, MCP calls,
+CLI commands, SDK examples, response handling, and current access boundary.
+
 This repository contains the open interoperability layer:
 
 - JSON Schemas for semantic entries and request-scoped context packs;
@@ -28,28 +76,6 @@ independent implementations test it. The examples demonstrate the format; they
 are not the commercial verified registry and do not carry a lifetime guarantee.
 
 Odoo 19 is the only current stock-version focus.
-
-## Try it
-
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e sdk/python
-python conformance/v0/run.py
-python reference/python/ocl_examples.py get-context "What is revenue?"
-```
-
-The final command uses only the ten public examples. It should ask for a
-revenue definition instead of inventing one.
-
-For a local example MCP server:
-
-```bash
-python reference/python/ocl_examples.py serve-mcp
-```
-
-See [the quickstart](docs/QUICKSTART.md) for client configuration and the exact
-boundary between this reference implementation and the commercial runtime.
 
 ## External developer alpha
 
@@ -76,6 +102,7 @@ decides which verification policy is sufficient for a release claim.
 - [Technical alpha](https://nanti.ai/context-layer)
 - [Format v0](spec/v0/README.md)
 - [Quickstart](docs/QUICKSTART.md)
+- [Using OCL](docs/USING_OCL.md)
 - [External developer alpha](docs/DEVELOPER_ALPHA.md)
 - [Governance](GOVERNANCE.md)
 - [Contributing](CONTRIBUTING.md)

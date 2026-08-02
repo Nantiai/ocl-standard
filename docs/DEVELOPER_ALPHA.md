@@ -29,7 +29,7 @@ entire corpus. No hosted endpoint is claimed by this repository today.
 ## Participate
 
 1. Run the [quickstart](QUICKSTART.md).
-2. Build or connect a reader, writer, connector, or agent.
+2. Follow [Using OCL](USING_OCL.md) to connect a reader, writer, connector, or agent.
 3. Submit an [integration report](https://github.com/Nantiai/ocl-standard/issues/new?template=integration-report.yml).
 4. Use [Discussions](https://github.com/Nantiai/ocl-standard/discussions) for format questions and proposed changes.
 

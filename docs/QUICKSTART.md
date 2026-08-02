@@ -3,49 +3,29 @@
 This quickstart runs entirely on the ten public candidate examples. It does not
 download or reconstruct the commercial registry.
 
-## Validate the format
+## 1. Ask OCL for context
 
 ```bash
 git clone https://github.com/Nantiai/ocl-standard.git
 cd ocl-standard
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e sdk/python
-python conformance/v0/run.py
+python reference/python/ocl_examples.py get-context "What is revenue?"
 ```
 
-Expected result:
+The public example runtime returns an `ocl.context_pack` with provenance,
+relevant facts, warnings, and required clarification. It should not silently
+choose a revenue formula.
 
-```text
-PASS ocl-public-conformance-v0: 10 entries, 1 context pack
-```
-
-## Ask the example resolver
+Try the other public operations:
 
 ```bash
-python reference/python/ocl_examples.py get-context "What is revenue?"
 python reference/python/ocl_examples.py resolve-noun "customer invoice"
 python reference/python/ocl_examples.py explain-field account.move invoice_user_id
 ```
 
-The first command should preserve ambiguity. It demonstrates the context-pack
-contract and public example types, not nanti.ai's production retrieval quality.
+## 2. Add the example MCP to an AI client
 
-## Run the example MCP server
-
-The reference server speaks JSON-RPC over stdio and exposes:
-
-- `get_context`;
-- `resolve_noun`;
-- `explain_field`.
-
-Run it directly:
-
-```bash
-python reference/python/ocl_examples.py serve-mcp
-```
-
-Example MCP client configuration:
+Use this generic stdio MCP configuration, replacing the path with the absolute
+path to your clone:
 
 ```json
 {
@@ -61,9 +41,26 @@ Example MCP client configuration:
 }
 ```
 
-Use an absolute path appropriate to your machine.
+The agent will discover `get_context`, `resolve_noun`, and `explain_field`.
+Tell the agent to call `get_context` before interpreting or planning Odoo work,
+then preserve every clarification and warning in the returned pack.
 
-## Build your own entry
+## 3. Validate the format
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e sdk/python
+python conformance/v0/run.py
+```
+
+Expected result:
+
+```text
+PASS ocl-public-conformance-v0: 10 entries, 1 context pack
+```
+
+## 4. Build your own entry
 
 Copy an example matching the required knowledge type, assign an ID in a
 namespace you control, attach evidence you have the right to reference, and
@@ -72,6 +69,9 @@ actually passed.
 
 The local validator proves format and trust-state invariants. It does not prove
 the underlying Odoo business fact.
+
+Read [Using OCL](USING_OCL.md) for the complete runtime pattern and code
+examples.
 
 ## Production access
 

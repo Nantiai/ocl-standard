@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context.nanti.ai/spec/v0/benchmark-artifact.schema.json",
+  "title": "OCL benchmark execution artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["document_kind", "schema_version", "format"],
+  "properties": {
+    "document_kind": {
+      "enum": [
+        "ocl.benchmark_prompt_bundle",
+        "ocl.benchmark_raw_run",
+        "ocl.benchmark_score_report",
+        "ocl.benchmark_annotation_bundle",
+        "ocl.benchmark_annotation_map",
+        "ocl.benchmark_blind_observations"
+      ]
+    },
+    "schema_version": {"const": "0.1.0"},
+    "format": {
+      "enum": [
+        "ocl-benchmark-prompt-bundle-v1",
+        "ocl-benchmark-raw-run-v1",
+        "ocl-benchmark-score-report-v1",
+        "ocl-benchmark-blind-annotation-bundle-v1",
+        "ocl-benchmark-annotation-map-v1",
+        "ocl-benchmark-blind-observations-v1"
+      ]
+    }
+  }
+}

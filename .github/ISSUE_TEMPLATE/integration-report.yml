@@ -1,0 +1,50 @@
+name: Integration report
+description: Report an independent reader, writer, connector, agent, or conformance result.
+title: "[integration]: "
+labels:
+  - integration
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for real interoperability work. Do not include customer data, credentials, proprietary Odoo source, or commercial registry content.
+  - type: input
+    id: project
+    attributes:
+      label: Project or integration
+      description: Link to the implementation when it is public.
+    validations:
+      required: true
+  - type: dropdown
+    id: implementation
+    attributes:
+      label: Implementation type
+      options:
+        - Reader
+        - Writer
+        - Connector or agent integration
+        - Conformance runner
+        - Other interoperability work
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: OCL schema version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: What worked, what failed, and the exact conformance command used.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Submission safety
+      options:
+        - label: This report contains no customer data, credentials, proprietary Odoo source, or commercial registry content.
+          required: true

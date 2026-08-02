@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context.nanti.ai/spec/v0/benchmark-suite.schema.json",
+  "title": "OCL sealed benchmark suite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_kind",
+    "schema_version",
+    "suite_id",
+    "status",
+    "sealed_at",
+    "protocol",
+    "cases",
+    "evidence",
+    "suite_sha256"
+  ],
+  "properties": {
+    "document_kind": {"const": "ocl.benchmark_suite"},
+    "schema_version": {"const": "0.1.0"},
+    "suite_id": {"type": "string", "minLength": 1},
+    "status": {"const": "sealed"},
+    "sealed_at": {"type": "string", "format": "date-time"},
+    "protocol": {"type": "string", "minLength": 1},
+    "cases": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "path", "sha256"],
+        "properties": {
+          "case_id": {"type": "string"},
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["report_id", "fixture_sha256"],
+        "properties": {
+          "report_id": {"type": "string"},
+          "fixture_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "suite_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

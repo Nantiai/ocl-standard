@@ -1,0 +1,103 @@
+{
+  "document_kind": "ocl.context_pack",
+  "schema_version": "0.1.0",
+  "pack_id": "ocl.public.example.context.0696ee2090659339",
+  "generated_at": "2026-08-02T00:00:00Z",
+  "request": {
+    "question": "What is revenue?",
+    "intent": "metric",
+    "token_budget": 2000,
+    "models": [],
+    "fields": []
+  },
+  "scope": {
+    "odoo_version": "19.0",
+    "edition": "community",
+    "modules": [
+      "account",
+      "sale",
+      "stock"
+    ]
+  },
+  "facts": [
+    {
+      "entry_id": "ocl.example.odoo19.account.revenue_ambiguity",
+      "revision": 1,
+      "rendered": "Candidate example showing that a business concept can require clarification. Clarify: Which business definition and date basis apply?",
+      "confidence": 0.4,
+      "status": "draft",
+      "selection_reason": "public example exact/lexical match"
+    }
+  ],
+  "warnings": [
+    {
+      "entry_id": "ocl.example.odoo19.account.amount_total_warning",
+      "revision": 1,
+      "rendered": "Candidate example encoding a tempting but unsafe interpretation. Correction: Resolve the metric definition and record population first.",
+      "confidence": 0.4,
+      "status": "draft",
+      "selection_reason": "public example exact/lexical match",
+      "severity": "warning"
+    }
+  ],
+  "unknowns": [
+    {
+      "code": "clarify_revenue",
+      "message": "Which business definition and date basis apply?",
+      "required_action": "clarify_before_execution",
+      "entry_id": "ocl.example.odoo19.account.revenue_ambiguity",
+      "revision": 1
+    }
+  ],
+  "provenance": {
+    "registry_pack_id": "ocl.public.examples.v0",
+    "registry_release": "0.1.0-alpha.1",
+    "release_lock_ids": [
+      "public-examples-not-a-release-lock"
+    ],
+    "verification_report_ids": [
+      "public-examples-candidate-only"
+    ],
+    "runtime_index_id": "public-example-reference-index",
+    "runtime_index_sha256": "e454e9ebe3b6eaf9c7264059cc71071a5994b9d54c3a22b5da4a1f75f23c97ec",
+    "entry_ids": [
+      "ocl.example.odoo19.account.revenue_ambiguity",
+      "ocl.example.odoo19.account.amount_total_warning"
+    ],
+    "token_estimator": "utf8_chars_div_4_example_only",
+    "estimated_tokens": 231,
+    "truncation": {
+      "token_budget": 2000,
+      "safe_minimum_tokens": 231,
+      "omitted_entry_ids": [],
+      "truncated": false
+    }
+  },
+  "diagnostics": {
+    "detected_identifiers": [],
+    "matched_terms": [
+      "revenue",
+      "revenue_guard"
+    ],
+    "retrieval": [
+      {
+        "entry_id": "ocl.example.odoo19.account.revenue_ambiguity",
+        "score": 60,
+        "exact_identifiers": [],
+        "matched_terms": [
+          "revenue"
+        ],
+        "source": "public_example_reference"
+      },
+      {
+        "entry_id": "ocl.example.odoo19.account.amount_total_warning",
+        "score": 40,
+        "exact_identifiers": [],
+        "matched_terms": [
+          "revenue_guard"
+        ],
+        "source": "public_example_reference"
+      }
+    ]
+  }
+}

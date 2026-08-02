@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.stock.quantity_context", "type": "gotcha", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["stock"]},
+  "claim": {"summary": "Candidate example for context-sensitive computed values.", "trigger": "Reading a stock quantity without defining company, warehouse, or location scope.", "consequence": "The value can answer a different question than intended.", "mitigation": "Make the required scope explicit before querying."},
+  "evidence": [{"id": "example_docs", "kind": "official_documentation", "locator": "https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/inventory.html"}],
+  "assertions": [{"id": "example_review", "kind": "manual_review", "mode": "manual", "target": {"concept": "stock_context"}, "expected": true, "evidence_ids": ["example_docs"]}],
+  "confidence": {"score": 0.4, "basis": "format_example_only", "rationale": "Candidate content demonstrates a gotcha entry."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate gotcha shape."}
+}

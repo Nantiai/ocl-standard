@@ -1,0 +1,63 @@
+{
+  "document_kind": "ocl.entry",
+  "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.account.customer_invoice",
+  "type": "noun_mapping",
+  "status": "evidence_attached",
+  "revision": 1,
+  "validity": {"contract_id": "ocl.contract.odoo.19.0.stock_truth", "intended_scope": "stock_release_line", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {
+    "odoo_versions": ["19.0"],
+    "editions": ["community", "enterprise"],
+    "requires_modules": ["account"],
+    "excludes_modules": [],
+    "localizations": []
+  },
+  "claim": {
+    "summary": "A customer invoice is an account.move whose move_type is out_invoice.",
+    "business_noun": "customer invoice",
+    "aliases": ["sales invoice"],
+    "model": "account.move",
+    "domain": [["move_type", "=", "out_invoice"]],
+    "limitations": ["Add state = posted only when the task requires accounting impact."]
+  },
+  "evidence": [
+    {
+      "id": "move_type_source",
+      "kind": "source_code",
+      "locator": "https://github.com/odoo/odoo/blob/7beeb76cdc27d1bbac5fce3570281e17f5f2c350/addons/account/models/account_move.py#L142-L159",
+      "revision": "7beeb76cdc27d1bbac5fce3570281e17f5f2c350",
+      "lines": "L142-L159",
+      "observed_at": "2026-07-11"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "out_invoice_selection",
+      "kind": "selection_contains",
+      "mode": "snapshot",
+      "target": {"model": "account.move", "field": "move_type"},
+      "expected": ["out_invoice"],
+      "evidence_ids": ["move_type_source"]
+    },
+    {
+      "id": "domain_executes",
+      "kind": "domain_executes",
+      "mode": "live_read",
+      "target": {"model": "account.move", "path": "claim.domain"},
+      "expected": true,
+      "evidence_ids": ["move_type_source"]
+    }
+  ],
+  "confidence": {
+    "score": 0.99,
+    "basis": "pinned_official_source",
+    "rationale": "The discriminator is explicit; live execution remains pending."
+  },
+  "provenance": {
+    "created_by": "stage1-source-normalizer",
+    "created_at": "2026-07-11",
+    "reviewed_by": [],
+    "change_reason": "Public v0 format example."
+  }
+}

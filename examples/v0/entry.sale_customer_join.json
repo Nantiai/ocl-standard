@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.sale.customer_join", "type": "join_path", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["sale"]},
+  "claim": {"summary": "Candidate example of a typed model relationship path.", "from_model": "sale.order.line", "to_model": "res.partner", "steps": [{"from": "sale.order.line", "field": "order_id", "to": "sale.order"}, {"from": "sale.order", "field": "partner_id", "to": "res.partner"}]},
+  "evidence": [{"id": "example_docs", "kind": "official_documentation", "locator": "https://www.odoo.com/documentation/19.0/applications/sales/sales.html"}],
+  "assertions": [{"id": "example_relation", "kind": "relation_target", "mode": "snapshot", "target": {"model": "sale.order.line", "field": "order_id"}, "expected": "sale.order", "evidence_ids": ["example_docs"]}],
+  "confidence": {"score": 0.5, "basis": "format_example_only", "rationale": "Candidate content is not a canonical registry certification."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate join path shape."}
+}

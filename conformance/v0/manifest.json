@@ -1,0 +1,23 @@
+{
+  "suite": "ocl-public-conformance-v0",
+  "schema": "../../spec/v0/entry.schema.json",
+  "examples": [
+    {"path": "../../examples/v0/entry.amount_total_warning.json", "sha256": "6c2f217a7c1fb25e962345042bf0d5580250f5fb748e2f7c54dd31f929e58b0f"},
+    {"path": "../../examples/v0/entry.company_security.json", "sha256": "167e257d4747915c037a360f0c728f01d1ac48b0a2eebf4543d0d03b48fdad2e"},
+    {"path": "../../examples/v0/entry.customer_invoice.json", "sha256": "7a95dcb7b38ec3b713e1dff8718d923635f011df1ff7132beb8a236a10928fc1"},
+    {"path": "../../examples/v0/entry.invoice_salesperson.json", "sha256": "34a32b6fccabf1a40248bf8e05adce3e581f950ced7975d88da78bfe82f19266"},
+    {"path": "../../examples/v0/entry.post_invoice_policy.json", "sha256": "969378d8edd05b7c0e503eb86673e6e6e2739e9ebb4a0cff0858c7e31dba8499"},
+    {"path": "../../examples/v0/entry.posted_documents.json", "sha256": "1a56b828c47500582868362072e1f2c63b793b46c5f5fcfdb5284f6fd5bb1ab1"},
+    {"path": "../../examples/v0/entry.revenue_ambiguity.json", "sha256": "b5998753ea46885e86b1bab81676b2a23a3a93b61ef39f5d098bc448d414aa0d"},
+    {"path": "../../examples/v0/entry.sale_customer_join.json", "sha256": "438412ecccc458bdf7b67ba0e5dfa544535e3639cc59c22ffe897fc09c3b6377"},
+    {"path": "../../examples/v0/entry.stock_context_gotcha.json", "sha256": "78ff394c7ed8297259ce157bc6a60d230f7254499d46a853988d76d0f995b5ef"},
+    {"path": "../../examples/v0/entry.vendor_bill.json", "sha256": "2c2368dfb676d8a2a1115be7fb5bf926a85561f1959cdd60ee854688ed39eca5"}
+  ],
+  "context_packs": [
+    {
+      "path": "../../examples/v0/context-pack.example.json",
+      "schema": "../../spec/v0/context-pack.schema.json",
+      "sha256": "b293d7e132064f926c78b8018fd1eddebb16720320153a573312ac4f4ab839bb"
+    }
+  ]
+}

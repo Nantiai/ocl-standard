@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Format discussion
+    url: https://github.com/Nantiai/ocl-standard/discussions
+    about: Discuss format questions and proposals before opening an implementation issue.
+  - name: Commercial registry access
+    url: https://nanti.ai/context-layer
+    about: Follow verified-registry and hosted developer-access availability.

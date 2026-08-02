@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context.nanti.ai/spec/v0/context-pack.schema.json",
+  "title": "OCL request context pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_kind",
+    "schema_version",
+    "pack_id",
+    "generated_at",
+    "request",
+    "scope",
+    "facts",
+    "warnings",
+    "unknowns",
+    "provenance",
+    "diagnostics"
+  ],
+  "properties": {
+    "document_kind": {"const": "ocl.context_pack"},
+    "schema_version": {"const": "0.1.0"},
+    "pack_id": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "intent", "token_budget"],
+      "properties": {
+        "question": {"type": "string"},
+        "intent": {"enum": ["explain", "read", "metric", "join", "write"]},
+        "token_budget": {"type": "integer", "minimum": 1},
+        "models": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["odoo_version", "edition", "modules"],
+      "properties": {
+        "odoo_version": {"type": "string"},
+        "edition": {"enum": ["community", "enterprise"]},
+        "modules": {"type": "array", "items": {"type": "string"}},
+        "tenant_id": {"type": "string"},
+        "company_ids": {"type": "array", "items": {"type": "integer"}},
+        "language": {"type": "string"},
+        "timezone": {"type": "string"}
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["entry_id", "revision", "rendered", "confidence", "status", "selection_reason"],
+        "properties": {
+          "entry_id": {"type": "string"},
+          "revision": {"type": "integer"},
+          "rendered": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "status": {"type": "string"},
+          "selection_reason": {"type": "string"},
+          "layer": {"enum": ["base", "overlay", "memory", "request"]},
+          "tenant_artifact_id": {"type": "string"},
+          "relation": {"enum": ["overrides", "narrows", "supplements", "conflicts"]}
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entry_id",
+          "revision",
+          "rendered",
+          "confidence",
+          "status",
+          "selection_reason",
+          "severity"
+        ],
+        "properties": {
+          "entry_id": {"type": "string"},
+          "revision": {"type": "integer", "minimum": 1},
+          "rendered": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "status": {"type": "string"},
+          "selection_reason": {"type": "string"},
+          "severity": {"enum": ["info", "warning", "high", "critical"]}
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "message", "required_action"],
+        "properties": {
+          "code": {"type": "string"},
+          "message": {"type": "string"},
+          "required_action": {"type": "string"},
+          "entry_id": {"type": "string"},
+          "revision": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_pack_id",
+        "registry_release",
+        "release_lock_ids",
+        "verification_report_ids",
+        "runtime_index_id",
+        "runtime_index_sha256",
+        "entry_ids",
+        "token_estimator",
+        "estimated_tokens",
+        "truncation"
+      ],
+      "properties": {
+        "registry_pack_id": {"type": "string"},
+        "registry_release": {"type": "string"},
+        "release_lock_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "verification_report_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "runtime_index_id": {"type": "string"},
+        "runtime_index_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "entry_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "token_estimator": {"type": "string"},
+        "estimated_tokens": {"type": "integer", "minimum": 0},
+        "truncation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["token_budget", "safe_minimum_tokens", "omitted_entry_ids", "truncated"],
+          "properties": {
+            "token_budget": {"type": "integer", "minimum": 1},
+            "safe_minimum_tokens": {"type": "integer", "minimum": 0},
+            "omitted_entry_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "truncated": {"type": "boolean"}
+          }
+        },
+        "tenant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tenant_id", "overlay_ids", "memory_ids", "conflict_count"],
+          "properties": {
+            "tenant_id": {"type": "string"},
+            "overlay_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "memory_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "conflict_count": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["detected_identifiers", "matched_terms", "retrieval"],
+      "properties": {
+        "detected_identifiers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "matched_terms": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "retrieval": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}

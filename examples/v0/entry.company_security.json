@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.common.company_security", "type": "security_note", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["base"]},
+  "claim": {"summary": "Candidate example describing a visibility boundary.", "models": ["res.company"], "rule": {"context": "allowed_company_ids"}, "implication": "Visible records are not proof of globally complete records."},
+  "evidence": [{"id": "example_docs", "kind": "official_documentation", "locator": "https://www.odoo.com/documentation/19.0/developer/howtos/company.html"}],
+  "assertions": [{"id": "example_review", "kind": "manual_review", "mode": "manual", "target": {"security": "multi_company"}, "expected": true, "evidence_ids": ["example_docs"]}],
+  "confidence": {"score": 0.4, "basis": "format_example_only", "rationale": "Candidate content demonstrates a security note."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate security note shape."}
+}

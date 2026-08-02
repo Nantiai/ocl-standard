@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.account.revenue_ambiguity", "type": "disambiguation", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["account"]},
+  "claim": {"summary": "Candidate example showing that a business concept can require clarification.", "concept": "revenue", "alternatives": [{"id": "gl", "meaning": "General-ledger revenue"}, {"id": "invoiced", "meaning": "Invoice-based sales"}], "questions": ["Which business definition and date basis apply?"]},
+  "evidence": [{"id": "example_review", "kind": "expert_review", "locator": "public-example://revenue-ambiguity"}],
+  "assertions": [{"id": "example_review", "kind": "manual_review", "mode": "manual", "target": {"concept": "revenue"}, "expected": true, "evidence_ids": ["example_review"]}],
+  "confidence": {"score": 0.4, "basis": "format_example_only", "rationale": "The example demonstrates required alternatives, not a certified metric."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate disambiguation shape."}
+}

@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.account.vendor_bill", "type": "noun_mapping", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["account"]},
+  "claim": {"summary": "Candidate example mapping a business noun to a discriminated model population.", "business_noun": "vendor bill", "aliases": ["supplier invoice"], "model": "account.move", "domain": [["move_type", "=", "in_invoice"]]},
+  "evidence": [{"id": "example_docs", "kind": "official_documentation", "locator": "https://www.odoo.com/documentation/19.0/applications/finance/accounting/vendor_bills.html"}],
+  "assertions": [{"id": "example_domain", "kind": "domain_syntax", "mode": "snapshot", "target": {"path": "claim.domain"}, "expected": true, "evidence_ids": ["example_docs"]}],
+  "confidence": {"score": 0.5, "basis": "format_example_only", "rationale": "Candidate content is not a canonical registry certification."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate noun mapping shape."}
+}

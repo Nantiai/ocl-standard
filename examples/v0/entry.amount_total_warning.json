@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.account.amount_total_warning", "type": "negative_knowledge", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["account"]},
+  "claim": {"summary": "Candidate example encoding a tempting but unsafe interpretation.", "temptation": "Treat one plausible-looking total field as a universal business metric.", "consequence": "Different document types and business definitions can be mixed.", "correction": "Resolve the metric definition and record population first."},
+  "evidence": [{"id": "example_review", "kind": "expert_review", "locator": "public-example://negative-knowledge"}],
+  "assertions": [{"id": "example_review", "kind": "manual_review", "mode": "manual", "target": {"policy": "negative_knowledge"}, "expected": true, "evidence_ids": ["example_review"]}],
+  "confidence": {"score": 0.4, "basis": "format_example_only", "rationale": "The example demonstrates negative knowledge structure."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate negative knowledge shape."}
+}

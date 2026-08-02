@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context.nanti.ai/spec/v0/entry.schema.json",
+  "title": "OCL semantic entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_kind",
+    "schema_version",
+    "id",
+    "type",
+    "status",
+    "revision",
+    "validity",
+    "applies_to",
+    "claim",
+    "evidence",
+    "assertions",
+    "confidence",
+    "provenance"
+  ],
+  "properties": {
+    "document_kind": {"const": "ocl.entry"},
+    "schema_version": {"const": "0.1.0"},
+    "id": {
+      "type": "string",
+      "pattern": "^ocl\\.[a-z0-9][a-z0-9_.-]*$"
+    },
+    "type": {
+      "enum": [
+        "noun_mapping",
+        "field_semantic",
+        "join_path",
+        "default_filter",
+        "metric",
+        "disambiguation",
+        "negative_knowledge",
+        "write_policy",
+        "security_note",
+        "gotcha",
+        "tenant_fact"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "evidence_attached",
+        "asserted",
+        "verified",
+        "degraded",
+        "deprecated",
+        "retired"
+      ]
+    },
+    "revision": {"type": "integer", "minimum": 1},
+    "validity": {"$ref": "#/$defs/validity"},
+    "applies_to": {"$ref": "#/$defs/applicability"},
+    "claim": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 1},
+        "business_noun": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "model": {"type": "string", "minLength": 1},
+        "field": {"type": "string", "minLength": 1},
+        "meaning": {"type": "string", "minLength": 1},
+        "domain": {"$ref": "#/$defs/domain"},
+        "purpose": {"type": "string", "minLength": 1},
+        "concept": {"type": "string", "minLength": 1},
+        "alternatives": {"type": "array", "minItems": 2, "items": {"type": "object"}},
+        "questions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "temptation": {"type": "string", "minLength": 1},
+        "consequence": {"type": "string", "minLength": 1},
+        "correction": {"type": "string", "minLength": 1},
+        "affected_models": {"type": "array", "items": {"type": "string"}},
+        "models": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "rule": {},
+        "implication": {"type": "string", "minLength": 1},
+        "operation": {"type": "string", "minLength": 1},
+        "risk": {"enum": ["low", "medium", "high", "critical"]},
+        "preferred_method": {"type": "string", "minLength": 1},
+        "preconditions": {"type": "array", "items": {"type": "string"}},
+        "from_model": {"type": "string"},
+        "to_model": {"type": "string"},
+        "steps": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "metric": {"type": "string"},
+        "grain": {"type": "string"},
+        "formula": {},
+        "date_field": {"type": "string"},
+        "currency": {},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+        "trigger": {"type": "string"},
+        "mitigation": {"type": "string"},
+        "fact": {},
+        "scope": {"type": "object"},
+        "confirmation": {"type": "object"},
+        "details": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/assertion"}
+    },
+    "confidence": {"$ref": "#/$defs/confidence"},
+    "provenance": {"$ref": "#/$defs/provenance"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "noun_mapping"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "business_noun", "model", "domain"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "field_semantic"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "model", "field", "meaning"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "join_path"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "from_model", "to_model", "steps"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "default_filter"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "model", "domain", "purpose"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "metric"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "metric", "grain", "formula"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "disambiguation"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "concept", "alternatives", "questions"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "negative_knowledge"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "temptation", "consequence", "correction"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "write_policy"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "model", "operation", "risk", "preferred_method"]}}}
+    },
+    {
+      "if": {"properties": {"type": {"const": "security_note"}}},
+      "then": {"properties": {"claim": {"required": ["summary", "models", "rule", "implication"]}}}
+    }
+  ],
+  "$defs": {
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "intended_scope", "guarantee", "stock_only", "immutable_after_release"],
+      "properties": {
+        "contract_id": {"type": "string", "minLength": 1},
+        "intended_scope": {"enum": ["stock_release_line", "stock_build", "tenant_overlay"]},
+        "guarantee": {"enum": ["candidate", "build_verified", "release_line_invariant", "lifetime_sealed"]},
+        "stock_only": {"type": "boolean"},
+        "immutable_after_release": {"type": "boolean"}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["odoo_versions", "editions", "requires_modules"],
+      "properties": {
+        "odoo_versions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "editions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"enum": ["community", "enterprise"]},
+          "uniqueItems": true
+        },
+        "requires_modules": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "excludes_modules": {"type": "array", "items": {"type": "string"}},
+        "localizations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "domain": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"enum": ["&", "|", "!"]},
+          {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "prefixItems": [
+              {"type": "string", "minLength": 1},
+              {"type": "string", "minLength": 1},
+              {}
+            ]
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "locator"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": [
+            "source_code",
+            "official_documentation",
+            "odoo_metadata",
+            "controlled_fixture",
+            "expert_review",
+            "delegated_review",
+            "tenant_confirmation"
+          ]
+        },
+        "locator": {"type": "string", "minLength": 1},
+        "revision": {"type": "string"},
+        "lines": {"type": "string"},
+        "observed_at": {"type": "string", "format": "date"},
+        "notes": {"type": "string"}
+      }
+    },
+    "assertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "mode", "target", "expected", "evidence_ids"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": [
+            "model_exists",
+            "field_exists",
+            "field_type",
+            "selection_contains",
+            "selection_equals",
+            "relation_target",
+            "field_attribute",
+            "method_exists",
+            "record_rule_domain",
+            "domain_syntax",
+            "domain_executes",
+            "behavioral_query",
+            "manual_review"
+          ]
+        },
+        "mode": {"enum": ["snapshot", "live_read", "live_fixture", "manual"]},
+        "target": {"type": "object", "minProperties": 1},
+        "expected": {},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "description": {"type": "string"},
+        "severity": {"enum": ["info", "warning", "high", "critical"]}
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "basis", "rationale"],
+      "properties": {
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_by", "created_at", "reviewed_by", "change_reason"],
+      "properties": {
+        "created_by": {"type": "string", "minLength": 1},
+        "created_at": {"type": "string", "format": "date"},
+        "reviewed_by": {"type": "array", "items": {"type": "string"}},
+        "change_reason": {"type": "string", "minLength": 1},
+        "supersedes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

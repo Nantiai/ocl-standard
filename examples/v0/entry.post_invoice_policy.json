@@ -1,0 +1,11 @@
+{
+  "document_kind": "ocl.entry", "schema_version": "0.1.0",
+  "id": "ocl.example.odoo19.account.post_invoice_policy", "type": "write_policy", "status": "draft", "revision": 1,
+  "validity": {"contract_id": "ocl.example.contract", "intended_scope": "stock_build", "guarantee": "candidate", "stock_only": true, "immutable_after_release": true},
+  "applies_to": {"odoo_versions": ["19.0"], "editions": ["community", "enterprise"], "requires_modules": ["account"]},
+  "claim": {"summary": "Candidate example for representing a high-risk business transition.", "model": "account.move", "operation": "post", "risk": "critical", "preferred_method": "Use the model's business method after authorization and validation.", "preconditions": ["Explicit record set", "Odoo authorization", "Human approval policy"]},
+  "evidence": [{"id": "example_docs", "kind": "official_documentation", "locator": "https://www.odoo.com/documentation/19.0/applications/finance/accounting/customer_invoices.html"}],
+  "assertions": [{"id": "example_method", "kind": "method_exists", "mode": "snapshot", "target": {"model": "account.move", "method": "action_post"}, "expected": true, "evidence_ids": ["example_docs"], "severity": "critical"}],
+  "confidence": {"score": 0.5, "basis": "format_example_only", "rationale": "Candidate content does not grant write authorization."},
+  "provenance": {"created_by": "public-spec-examples", "created_at": "2026-07-29", "reviewed_by": [], "change_reason": "Demonstrate write policy shape."}
+}

@@ -24,3 +24,24 @@ if errors:
 
 `validate_entry` adds public trust-state and evidence-reference checks on top of
 JSON Schema. It does not execute Odoo assertions or certify business truth.
+
+## Authorized runtime client
+
+When issued an External Developer Alpha endpoint and token:
+
+```python
+import os
+
+from ocl_spec import OCLClient
+
+ocl = OCLClient(os.environ["OCL_URL"], os.environ["OCL_TOKEN"])
+pack = ocl.get_context(
+    "Which invoices are unpaid?",
+    odoo_version="19.0",
+    edition="community",
+    modules=["account"],
+)
+```
+
+The client is dependency-free and supports all five production operations. It
+does not include a registry or make the public examples production truth.

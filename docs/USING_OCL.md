@@ -118,6 +118,9 @@ const pack = await ocl.getContext("Which invoices are unpaid?", {
 The URL above is intentionally a placeholder for an authorized implementation;
 nanti.ai does not claim a public hosted endpoint yet.
 
+See [Verified runtime alpha](HOSTED_ALPHA.md) for the Bearer REST, Python, and
+remote MCP call shapes used after an invitation is issued.
+
 ## Handle the response safely
 
 An OCL context pack separates:

@@ -5,16 +5,27 @@ export type OCLScope = {
 };
 
 export class OCLClient {
-  constructor(private readonly baseUrl = "http://127.0.0.1:8765") {}
+  private readonly baseUrl: string;
+
+  constructor(baseUrl = "http://127.0.0.1:8765", private readonly accessToken?: string) {
+    this.baseUrl = baseUrl.replace(/\/$/, "");
+  }
 
   private async call<T>(tool: string, input: Record<string, unknown>): Promise<T> {
     const response = await fetch(`${this.baseUrl}/v1/${tool.replaceAll("_", "-")}`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        ...(this.accessToken ? { authorization: `Bearer ${this.accessToken}` } : {}),
+      },
       body: JSON.stringify(input),
     });
-    const payload = await response.json() as { result?: T; error?: string };
-    if (!response.ok || payload.error) throw new Error(payload.error ?? `OCL HTTP ${response.status}`);
+    const payload = await response.json() as {
+      result?: T;
+      error?: string | { code?: string; message?: string };
+    };
+    const error = typeof payload.error === "string" ? payload.error : payload.error?.message;
+    if (!response.ok || payload.error) throw new Error(error ?? `OCL HTTP ${response.status}`);
     return payload.result as T;
   }
 

@@ -11,6 +11,10 @@
       "sha256": "56d7f286b5972903a16da6812f0f683a0eee1dab352f836c8420c788d15f44cd"
     },
     {
+      "path": ".github/ISSUE_TEMPLATE/runtime-alpha-access.yml",
+      "sha256": "264d1dcdb4fa478f679cdc68225b09f03f11670aae579d922eccf60025f32dc3"
+    },
+    {
       "path": ".gitignore",
       "sha256": "fe1795f160979f7063bd2382ae57356c9ce6bbe0333dfb82480b66a5cf94d067"
     },
@@ -32,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "89b040dda9c818969b9da6b46a62e461017ab8e89cdd3b1210ec5bb7ba8437e2"
+      "sha256": "21256615fcf3135353b7bcfbb633c84843bbd43d89d9edb917d8575983d4ea86"
     },
     {
       "path": "SECURITY.md",
@@ -51,12 +55,20 @@
       "sha256": "ec63349c058b0c7afa9a8ae4d98be6e73d8314c870d1c4aa0d9cb75ab6b5c647"
     },
     {
+      "path": "docs/ALPHA_ACCEPTABLE_USE.md",
+      "sha256": "dd67578c68a7fcc81466b92165778ff965baa03b80dae71945e1de084c40f3c7"
+    },
+    {
       "path": "docs/BENCHMARK.md",
       "sha256": "0d560ea4007ce3137ed0c6af986054a61e6d570d154f27e908f5e319eeb5ce99"
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
       "sha256": "022f2d08f33ab73980d86352f4a9b1e72b5ba6503bf94734bb3cee63a9c15d71"
+    },
+    {
+      "path": "docs/HOSTED_ALPHA.md",
+      "sha256": "92ce07a0d62c1d64c216d79a60987340128a7d698835d1d023e4804fd5705b58"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -68,7 +80,7 @@
     },
     {
       "path": "docs/USING_OCL.md",
-      "sha256": "40830cca07dc1500c2d79b7114f6fe81ae16909cb74c2658c9834afd025bd4b7"
+      "sha256": "7decf2d50812abfec7016fa3d784a79196214d849caf3a59e018abfe42774125"
     },
     {
       "path": "examples/v0/context-pack.example.json",
@@ -124,11 +136,15 @@
     },
     {
       "path": "sdk/python/README.md",
-      "sha256": "9a0421a71bd0d4a35be2fe93f8f1d4a25f3d144c226fb6097d48128375020701"
+      "sha256": "9e28af3879405ee442afb1e39720520e6e95461666d15d71806fbe2510c357e2"
     },
     {
       "path": "sdk/python/ocl_spec/__init__.py",
-      "sha256": "a4b85f4176a9bd0d02d32eddc670fa2d845e00861123521cf432f51c86504ff8"
+      "sha256": "2b01503586bfe76a408191ea023eeaff7bfcc8dae9b890a12503dea359dfc643"
+    },
+    {
+      "path": "sdk/python/ocl_spec/client.py",
+      "sha256": "beb1c128d53c12b153cb9b265167b4c9dc07d1b7c78da8f9b936440684dbf21f"
     },
     {
       "path": "sdk/python/ocl_spec/validator.py",
@@ -139,8 +155,12 @@
       "sha256": "54998e63bc0d2690b414961f0461885f5a927f5368272be60aba292dc9c90a99"
     },
     {
+      "path": "sdk/python/test_client.py",
+      "sha256": "85957aae5cd7d9355a824ab6f55385a7cefe8dd19d84271eb9b02b1a8bf87489"
+    },
+    {
       "path": "sdk/typescript/README.md",
-      "sha256": "4d627528e25c15d7f5702f3efad0b3c777051d0bc3ddc26162144d4298093aef"
+      "sha256": "1220a2ee77ebe90aa05adaf35d6ce250f991feb6e9047096b03cdee5dad68d59"
     },
     {
       "path": "sdk/typescript/package.json",
@@ -148,7 +168,7 @@
     },
     {
       "path": "sdk/typescript/src/index.ts",
-      "sha256": "5f2c60b3200fab60c715983b08f1c48f9b5247551866f1716e465a5cbed95bf9"
+      "sha256": "cc915298ab6674852b74074e57f2e82b95c6176cba705fbaca49f7617da5ed74"
     },
     {
       "path": "spec/v0/README.md",
@@ -183,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.8c0b0a8322db",
-  "export_sha256": "8c0b0a8322db2e041143b4ddbebbd1c3f7a5b1e41dfb06ef078fde65894a5d75"
+  "export_id": "ocl.public.v0.83842f08ab87",
+  "export_sha256": "83842f08ab874a842003dd637e29884ef2ef88bc640e4b700794b320238817aa"
 }

@@ -1,0 +1,65 @@
+name: Verified runtime alpha access
+description: Request a scoped invitation to evaluate verified Odoo 19 context through REST or MCP.
+title: "[runtime alpha]: "
+labels:
+  - developer-alpha
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This request is public. Do not include customer data, credentials, private source, database names, or confidential implementation details. If accepted, a maintainer will arrange private token delivery separately.
+  - type: input
+    id: project
+    attributes:
+      label: Project or product
+      description: Public link when available, otherwise a short non-confidential description.
+    validations:
+      required: true
+  - type: dropdown
+    id: integration
+    attributes:
+      label: Intended integration
+      options:
+        - MCP agent or assistant
+        - REST application
+        - Odoo connector
+        - Python SDK
+        - TypeScript client
+        - Independent conformance implementation
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Odoo 19 edition
+      options:
+        - Community
+        - Enterprise
+        - Both
+    validations:
+      required: true
+  - type: input
+    id: modules
+    attributes:
+      label: Relevant modules
+      placeholder: Accounting, Sales, Inventory, Purchase
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation questions
+      description: Describe two or three business questions or write-risk checks, without customer records.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conditions
+    attributes:
+      label: Alpha conditions
+      options:
+        - label: I will use access for scoped evaluation, not registry reconstruction, bulk extraction, redistribution, or a production SLA.
+          required: true
+        - label: I will not submit customer data, credentials, or confidential database information to this public issue.
+          required: true
+        - label: I have read the [External Alpha Acceptable Use](https://github.com/Nantiai/ocl-standard/blob/main/docs/ALPHA_ACCEPTABLE_USE.md) document.
+          required: true

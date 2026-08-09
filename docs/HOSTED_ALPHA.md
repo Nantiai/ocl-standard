@@ -14,20 +14,21 @@ anonymous public API. Invited developers receive:
 - request, context-budget, and distinct-entry allowances;
 - no production SLA during alpha.
 
-Request access through the
-[verified runtime alpha form](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml).
-Do not include customer data or confidential database information in the
-public request. Access is subject to the
-[External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md) boundary.
+Try the fixed, no-login
+[revenue decision demo](https://api.context.nanti.ai/demo/revenue), then use
+the native [one-minute access form](https://api.context.nanti.ai/request-access).
+Do not include customer data or confidential database information. Access is
+subject to the [External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md)
+boundary.
 
-The GitHub form requires a GitHub account. If that is inconvenient, email
-[hello@nanti.ai](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
-with the intended integration, Odoo 19 edition, relevant modules, and one or
-two questions you want to test.
+The native form does not require GitHub. The
+[GitHub form](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml)
+and [email](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
+remain fallback paths.
 
 ## Fastest path
 
-1. Submit the GitHub form or short email.
+1. Try the fixed verified demo, then submit the native short form.
 2. Receive a scoped token, expiry, and limits privately.
 3. Set `OCL_TOKEN` and add the remote MCP URL to the existing AI tool.
 4. Ask the AI an Odoo question; it calls OCL before using its Odoo connector.

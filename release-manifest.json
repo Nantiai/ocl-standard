@@ -36,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "68d3baed86ef47f3fdd6f7eec896a6099aad5914a65cbe0a8610abeb80f4e979"
+      "sha256": "a589908407e7c710dfeba1e110361e888b5cf2ee5f2c587ecad9534d44f10c42"
     },
     {
       "path": "SECURITY.md",
@@ -64,11 +64,11 @@
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
-      "sha256": "9b30e0cee4031f66c7652d73905856f2d907f8b8df2058935c5d85c61d95630b"
+      "sha256": "8191ba0188c05b4108f0ef633788a9909acd2949725c68c2d640702269741502"
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "3aed1bec7a4e8674b64b45e0cb1e936756322c6999fa5c83933dc9d48783a88d"
+      "sha256": "71996970abd337d50a661b520d078aef66d83f82fac81c14bfc7d7d32c395cea"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.49d5d8267713",
-  "export_sha256": "49d5d8267713a6b79290a942ece4a9e97a17ea1402f39c8f65c92b441264ee14"
+  "export_id": "ocl.public.v0.e7deabab2ed3",
+  "export_sha256": "e7deabab2ed3a776654ee409f79712168dafa8f3bc4c94005a5d884797346061"
 }

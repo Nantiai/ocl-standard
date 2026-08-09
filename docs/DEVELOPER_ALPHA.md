@@ -32,13 +32,16 @@ repository does not contain or grant access to that corpus.
 
 1. Run the [quickstart](QUICKSTART.md).
 2. Follow [Using OCL](USING_OCL.md) to connect a reader, writer, connector, or agent.
-3. Request [scoped runtime access](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml) if the public examples are insufficient.
+3. Try the [live verified decision](https://api.context.nanti.ai/demo/revenue),
+   then request [scoped runtime access](https://api.context.nanti.ai/request-access)
+   if the public examples are insufficient.
 4. Submit an [integration report](https://github.com/Nantiai/ocl-standard/issues/new?template=integration-report.yml).
 5. Use [Discussions](https://github.com/Nantiai/ocl-standard/discussions) for format questions and proposed changes.
 
 Conformance proves document interoperability. It does not certify that an
 ontology statement is true.
 
-The GitHub request path requires sign-in. Developers without a GitHub account
-can instead email [hello@nanti.ai](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
-with their integration, Odoo 19 edition, modules, and intended test questions.
+The native request needs no GitHub account. The
+[GitHub request](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml)
+and [email](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
+remain available as fallbacks.

@@ -29,6 +29,11 @@ JSON Schema. It does not execute Odoo assertions or certify business truth.
 
 When issued an External Developer Alpha endpoint and token:
 
+```bash
+export OCL_URL="https://api.context.nanti.ai"
+export OCL_TOKEN="<issued-token>"
+```
+
 ```python
 import os
 

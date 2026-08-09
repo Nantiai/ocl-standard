@@ -107,7 +107,7 @@ and package release process exist.
 ```ts
 import { OCLClient } from "./sdk/typescript/src/index.js";
 
-const ocl = new OCLClient("https://your-authorized-ocl-endpoint.example");
+const ocl = new OCLClient("https://api.context.nanti.ai", process.env.OCL_TOKEN);
 const pack = await ocl.getContext("Which invoices are unpaid?", {
   odoo_version: "19.0",
   edition: "community",
@@ -115,8 +115,8 @@ const pack = await ocl.getContext("Which invoices are unpaid?", {
 });
 ```
 
-The URL above is intentionally a placeholder for an authorized implementation;
-nanti.ai does not claim a public hosted endpoint yet.
+The hosted URL is live but requires a scoped, expiring invitation token. It is
+not an anonymous registry or bulk-export endpoint.
 
 See [Verified runtime alpha](HOSTED_ALPHA.md) for the Bearer REST, Python, and
 remote MCP call shapes used after an invitation is issued.
@@ -138,7 +138,7 @@ descriptions, then let Odoo enforce ACLs, record rules, and business methods.
 ## What is usable today
 
 The public repository is usable today for format adoption, conformance,
-integration development, and a ten-example MCP demonstration. The verified
-44-entry runtime remains private while controlled, request-scoped developer
-delivery is prepared. The public examples must not be presented as production
-ontology coverage.
+integration development, and a ten-example MCP demonstration. Invited
+developers can also call the private 44-entry verified runtime through
+request-scoped REST or remote MCP. The public examples must not be presented as
+production ontology coverage.

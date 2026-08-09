@@ -5,8 +5,8 @@ Odoo 19 context without receiving the commercial registry.
 
 ## Availability
 
-The client contract and private deployment are implemented. No public endpoint
-URL is claimed until hosting is activated. Invited developers receive:
+The controlled runtime is live at `https://api.context.nanti.ai`. It is not an
+anonymous public API. Invited developers receive:
 
 - an HTTPS base URL;
 - a scoped, expiring Bearer token;
@@ -21,6 +21,13 @@ public request. Access is subject to the
 [External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md) boundary.
 
 ## REST
+
+Set the issued token once:
+
+```bash
+export OCL_URL="https://api.context.nanti.ai"
+export OCL_TOKEN="<issued-token>"
+```
 
 ```bash
 curl "$OCL_URL/v1/get-context" \
@@ -58,7 +65,7 @@ pack = ocl.get_context(
 {
   "mcpServers": {
     "ocl": {
-      "url": "https://<issued-host>/mcp",
+      "url": "https://api.context.nanti.ai/mcp",
       "headers": {
         "Authorization": "Bearer ${OCL_TOKEN}"
       }

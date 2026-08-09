@@ -36,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "21256615fcf3135353b7bcfbb633c84843bbd43d89d9edb917d8575983d4ea86"
+      "sha256": "60d773c3e325d500efa03576025e92fa2808de637170248046fe7d23068557e6"
     },
     {
       "path": "SECURITY.md",
@@ -64,11 +64,11 @@
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
-      "sha256": "022f2d08f33ab73980d86352f4a9b1e72b5ba6503bf94734bb3cee63a9c15d71"
+      "sha256": "1f7ad78532c16619a7d1f40e3ca1b0e0149359bd54f7d72bf8cf654077a63ec4"
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "92ce07a0d62c1d64c216d79a60987340128a7d698835d1d023e4804fd5705b58"
+      "sha256": "c55c29f730f74688351a4388c7ef8b78c856d34191b4267fa13fef3c083f95d1"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -80,7 +80,7 @@
     },
     {
       "path": "docs/USING_OCL.md",
-      "sha256": "7decf2d50812abfec7016fa3d784a79196214d849caf3a59e018abfe42774125"
+      "sha256": "0cb1ff43c055192140a8e66b3a3eaa6ef85c54cc12971366a47edd183ae3eea7"
     },
     {
       "path": "examples/v0/context-pack.example.json",
@@ -136,7 +136,7 @@
     },
     {
       "path": "sdk/python/README.md",
-      "sha256": "9e28af3879405ee442afb1e39720520e6e95461666d15d71806fbe2510c357e2"
+      "sha256": "dcf6bf882c812b81ae5a24d75a0ef6eb4fd4f7dc4260e31c3363b32d1787e908"
     },
     {
       "path": "sdk/python/ocl_spec/__init__.py",
@@ -160,7 +160,7 @@
     },
     {
       "path": "sdk/typescript/README.md",
-      "sha256": "1220a2ee77ebe90aa05adaf35d6ce250f991feb6e9047096b03cdee5dad68d59"
+      "sha256": "5c43e2825a291820444c8b9d4dc4103a103ae30aa78d7d0f48ab62b9107a7547"
     },
     {
       "path": "sdk/typescript/package.json",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.83842f08ab87",
-  "export_sha256": "83842f08ab874a842003dd637e29884ef2ef88bc640e4b700794b320238817aa"
+  "export_id": "ocl.public.v0.77d87391e074",
+  "export_sha256": "77d87391e074a77743e1a9eb712328669cd336ad0199988e3163a4683e10473d"
 }

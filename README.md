@@ -18,10 +18,10 @@ Choose the surface that fits your product:
 
 | Route | Call | Benefit | Alpha availability |
 | --- | --- | --- | --- |
-| MCP for AI agents | `get_context`, `resolve_noun`, `explain_field` | Put scoped Odoo meaning directly in an agent's tool loop | Public example server now |
+| MCP for AI agents | `get_context`, `resolve_noun`, `explain_field` | Put scoped Odoo meaning directly in an agent's tool loop | Public example or invitation runtime |
 | CLI | `get-context "What is revenue?"` | Inspect a context pack and its warnings immediately | Public examples now |
 | Python validator | `validate_entry(entry, schema)` | Read and produce interoperable OCL documents | Available now |
-| TypeScript integration | Five production operation shapes | Prepare a connector or product for the hosted runtime | Source alpha now; endpoint pending |
+| TypeScript integration | Five production operation shapes | Connect a product to the verified hosted runtime | Source alpha and invitation runtime |
 
 Clone and try the context behavior:
 
@@ -86,7 +86,8 @@ MCP server, and report an independent implementation. See the
 [developer alpha guide](docs/DEVELOPER_ALPHA.md).
 
 The public alpha is an interoperability surface, not free bulk access to the
-commercial verified registry. A production registry endpoint is not live yet.
+commercial verified registry. An invitation-only verified runtime is live at
+`https://api.context.nanti.ai`; every caller receives a scoped, expiring key.
 
 ## Core idea
 

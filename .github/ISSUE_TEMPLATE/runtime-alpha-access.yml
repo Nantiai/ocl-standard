@@ -1,8 +1,6 @@
 name: Verified runtime alpha access
 description: Request a scoped invitation to evaluate verified Odoo 19 context through REST or MCP.
 title: "[runtime alpha]: "
-labels:
-  - developer-alpha
 body:
   - type: markdown
     attributes:

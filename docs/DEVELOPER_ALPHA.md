@@ -38,3 +38,7 @@ repository does not contain or grant access to that corpus.
 
 Conformance proves document interoperability. It does not certify that an
 ontology statement is true.
+
+The GitHub request path requires sign-in. Developers without a GitHub account
+can instead email [hello@nanti.ai](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
+with their integration, Odoo 19 edition, modules, and intended test questions.

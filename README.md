@@ -57,6 +57,8 @@ See **[Using OCL](docs/USING_OCL.md)** for the integration flow, MCP calls,
 CLI commands, SDK examples, response handling, and current access boundary.
 Invited runtime clients can follow the **[verified alpha call guide](docs/HOSTED_ALPHA.md)**.
 Developers can **[request scoped runtime alpha access](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml)** without posting customer data.
+Developers without GitHub can request the same access by emailing
+[hello@nanti.ai](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access).
 
 This repository contains the open interoperability layer:
 

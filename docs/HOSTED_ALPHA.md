@@ -14,15 +14,53 @@ anonymous public API. Invited developers receive:
 - request, context-budget, and distinct-entry allowances;
 - no production SLA during alpha.
 
-When invitations open, request access through the
+Request access through the
 [verified runtime alpha form](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml).
 Do not include customer data or confidential database information in the
 public request. Access is subject to the
 [External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md) boundary.
 
+The GitHub form requires a GitHub account. If that is inconvenient, email
+[hello@nanti.ai](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
+with the intended integration, Odoo 19 edition, relevant modules, and one or
+two questions you want to test.
+
+## Fastest path
+
+1. Submit the GitHub form or short email.
+2. Receive a scoped token, expiry, and limits privately.
+3. Set `OCL_TOKEN` and add the remote MCP URL to the existing AI tool.
+4. Ask the AI an Odoo question; it calls OCL before using its Odoo connector.
+
+No OCL package or local server is required for remote MCP.
+
+### Codex CLI
+
+```bash
+export OCL_TOKEN="<issued-token>"
+codex mcp add ocl \
+  --url https://api.context.nanti.ai/mcp \
+  --bearer-token-env-var OCL_TOKEN
+codex mcp get ocl
+```
+
+Launch Codex from the same environment so it can read `OCL_TOKEN`.
+
+### Claude Code
+
+```bash
+export OCL_TOKEN="<issued-token>"
+claude mcp add --scope user --transport http ocl \
+  https://api.context.nanti.ai/mcp \
+  --header "Authorization: Bearer $OCL_TOKEN"
+```
+
+Claude Code stores the configured header in its user configuration. Treat that
+file as a secret and never commit or share it.
+
 ## REST
 
-Set the issued token once:
+For direct HTTP or SDK calls, set both values once:
 
 ```bash
 export OCL_URL="https://api.context.nanti.ai"

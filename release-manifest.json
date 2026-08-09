@@ -12,7 +12,7 @@
     },
     {
       "path": ".github/ISSUE_TEMPLATE/runtime-alpha-access.yml",
-      "sha256": "264d1dcdb4fa478f679cdc68225b09f03f11670aae579d922eccf60025f32dc3"
+      "sha256": "21a80fab024cb51cdb990f7e668dfb08e52644536ed9cca10161291c66146f48"
     },
     {
       "path": ".gitignore",
@@ -36,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "60d773c3e325d500efa03576025e92fa2808de637170248046fe7d23068557e6"
+      "sha256": "68d3baed86ef47f3fdd6f7eec896a6099aad5914a65cbe0a8610abeb80f4e979"
     },
     {
       "path": "SECURITY.md",
@@ -64,11 +64,11 @@
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
-      "sha256": "1f7ad78532c16619a7d1f40e3ca1b0e0149359bd54f7d72bf8cf654077a63ec4"
+      "sha256": "9b30e0cee4031f66c7652d73905856f2d907f8b8df2058935c5d85c61d95630b"
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "c55c29f730f74688351a4388c7ef8b78c856d34191b4267fa13fef3c083f95d1"
+      "sha256": "3aed1bec7a4e8674b64b45e0cb1e936756322c6999fa5c83933dc9d48783a88d"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.77d87391e074",
-  "export_sha256": "77d87391e074a77743e1a9eb712328669cd336ad0199988e3163a4683e10473d"
+  "export_id": "ocl.public.v0.49d5d8267713",
+  "export_sha256": "49d5d8267713a6b79290a942ece4a9e97a17ea1402f39c8f65c92b441264ee14"
 }

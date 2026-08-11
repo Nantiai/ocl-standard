@@ -68,7 +68,7 @@
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "730f27481d1a6277837fc8599ddab0d2adf94254a59866b99be08ae9cbbe01f3"
+      "sha256": "d33d3bfc42f5e5ae48a37735ff0cdc33bf73a24cb1c16da7db2be60264ea8d39"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.aa8f23be3254",
-  "export_sha256": "aa8f23be325491eba9c95953bee50c3d2ec3dd160602cc43d435569062ea9516"
+  "export_id": "ocl.public.v0.3f4032d46e94",
+  "export_sha256": "3f4032d46e94eb0c24ba4ec6bbaf886615a7369f87ab6100ed9879eb21af9603"
 }

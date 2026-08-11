@@ -41,6 +41,9 @@ Automatic trials allow 10 requests/minute, 100/day, 16 distinct released
 entries/day, and context packs up to 4,000 requested tokens. They are limited
 to the selected Odoo 19 edition and module families. The service rejects bulk
 registry extraction, wildcard scope, and requests outside the entitlement.
+Submitted access details are removed after 90 days, and keyed abuse-control
+fingerprints after 24 hours. The raw trial token is never stored; its hash and
+exact quota rows are removed 30 days after the seven-day trial expires.
 
 ### Codex CLI
 

@@ -51,13 +51,13 @@ against treating `account.move.amount_total` as universal revenue.
 ```
 
 This local server demonstrates the real OCL tool contract using ten public
-candidate examples. It is not the commercial 44-entry verified runtime.
+candidate examples. It is not the commercial 171-entry verified runtime.
 
 See **[Using OCL](docs/USING_OCL.md)** for the integration flow, MCP calls,
 CLI commands, SDK examples, response handling, and current access boundary.
-Invited runtime clients can follow the **[verified alpha call guide](docs/HOSTED_ALPHA.md)**.
+Hosted runtime clients can follow the **[verified alpha call guide](docs/HOSTED_ALPHA.md)**.
 Developers can first **[try one live verified decision](https://api.context.nanti.ai/demo/revenue)**,
-then **[request scoped runtime access](https://api.context.nanti.ai/request-access)**
+then **[start a scoped seven-day trial](https://api.context.nanti.ai/request-access)**
 without GitHub, package installation, Odoo credentials, or customer data.
 The [GitHub request](https://github.com/Nantiai/ocl-standard/issues/new?template=runtime-alpha-access.yml)
 and [email](mailto:hello@nanti.ai?subject=OCL%20developer%20alpha%20access)
@@ -91,8 +91,9 @@ MCP server, and report an independent implementation. See the
 [developer alpha guide](docs/DEVELOPER_ALPHA.md).
 
 The public alpha is an interoperability surface, not free bulk access to the
-commercial verified registry. An invitation-only verified runtime is live at
-`https://api.context.nanti.ai`; every caller receives a scoped, expiring key.
+commercial verified registry. A bounded verified runtime is live at
+`https://api.context.nanti.ai`; its native form immediately issues a scoped,
+expiring evaluation key.
 
 ## Core idea
 

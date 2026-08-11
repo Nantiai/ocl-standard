@@ -9,7 +9,7 @@ agents, MCP servers, context tooling, and independent OCL readers or writers.
 - Python validation and TypeScript document types;
 - ten candidate examples and one valid context pack;
 - an example-only resolver and local MCP server;
-- invitation-gated access to the verified hosted runtime;
+- immediate bounded-trial access to the verified hosted runtime;
 - public issues, discussions, and integration reports.
 
 The fastest useful contribution is an independent reader that validates the
@@ -33,8 +33,8 @@ repository does not contain or grant access to that corpus.
 1. Run the [quickstart](QUICKSTART.md).
 2. Follow [Using OCL](USING_OCL.md) to connect a reader, writer, connector, or agent.
 3. Try the [live verified decision](https://api.context.nanti.ai/demo/revenue),
-   then request [scoped runtime access](https://api.context.nanti.ai/request-access)
-   if the public examples are insufficient.
+   then start a [scoped seven-day runtime trial](https://api.context.nanti.ai/request-access)
+   if the public examples are insufficient. The token appears once immediately.
 4. Submit an [integration report](https://github.com/Nantiai/ocl-standard/issues/new?template=integration-report.yml).
 5. Use [Discussions](https://github.com/Nantiai/ocl-standard/discussions) for format questions and proposed changes.
 

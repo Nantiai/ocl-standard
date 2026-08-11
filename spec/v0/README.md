@@ -57,3 +57,11 @@ Example:
 
 Syntax validation does not prove that a domain compiles on a model. That needs
 a live `domain_executes` assertion.
+
+## Additive claim fields
+
+Migration note, 2026-08-11: schema `0.1.0` now recognizes optional structured
+detail for discriminators, join paths/cardinality, write approvals and failure
+boundaries, and security access/safe-behavior notes. Existing `0.1.0` entries
+remain valid and readers may ignore these optional fields. The required core
+shape and write-policy risk enum are unchanged.

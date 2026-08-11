@@ -172,7 +172,7 @@
     },
     {
       "path": "spec/v0/README.md",
-      "sha256": "bf5b386dc70286073ac2d5d9da4705d04cbf3f4cd8f18c75dc01eb5f9206f1ee"
+      "sha256": "ddc913ae607ed2d1c30cb95e718a84a28c5ac9ce0617434d1a0490a012ccb340"
     },
     {
       "path": "spec/v0/benchmark-artifact.schema.json",
@@ -192,7 +192,7 @@
     },
     {
       "path": "spec/v0/entry.schema.json",
-      "sha256": "88ca7dd5e863c4713f3eb9277a2d0e93b81bad0fe0eeceac4edf63b7f359466b"
+      "sha256": "a9417f10018763ff0e685ef2a8242d958ab753ae53e718cc249b46171aa763ca"
     },
     {
       "path": "spec/v0/pack.schema.json",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.e7deabab2ed3",
-  "export_sha256": "e7deabab2ed3a776654ee409f79712168dafa8f3bc4c94005a5d884797346061"
+  "export_id": "ocl.public.v0.8e7a0f27b489",
+  "export_sha256": "8e7a0f27b48979a3c60f411e559aa11b304106d19444b2de89d667b4c4782eb3"
 }

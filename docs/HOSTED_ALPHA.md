@@ -17,7 +17,7 @@ can create a seven-day trial immediately and receive:
 
 Try the fixed, no-login
 [revenue decision demo](https://api.context.nanti.ai/demo/revenue), then use
-the native [one-minute access form](https://api.context.nanti.ai/request-access).
+the native [email-only access form](https://api.context.nanti.ai/request-access).
 Do not include customer data or confidential database information. Access is
 subject to the [External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md)
 boundary.
@@ -37,9 +37,10 @@ remain fallback paths.
 
 No OCL package or local server is required for remote MCP.
 
-Automatic trials allow 10 requests/minute, 100/day, 16 distinct released
-entries/day, and context packs up to 4,000 requested tokens. They are limited
-to the selected Odoo 19 edition and module families. The service rejects bulk
+Automatic trials have no request-count meter during the seven-day evaluation.
+They include both Odoo 19 editions and all released runtime modules. A
+30-request/minute burst guard, 16-distinct-entry daily guard and 6,000-token
+context ceiling remain security boundaries. The service rejects bulk
 registry extraction, wildcard scope, and requests outside the entitlement.
 Submitted access details are removed after 90 days, and keyed abuse-control
 fingerprints after 24 hours. The raw trial token is never stored; its hash and

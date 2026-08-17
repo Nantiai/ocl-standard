@@ -19,6 +19,10 @@ draft contracts and can change until independent implementations exercise them.
   three-arm evaluation artifacts.
 - `registry-catalog.schema.json`: composition of independently released packs.
 
+Catalog pack items may optionally pin their own `release`. Readers that do not
+see this field use the catalog-level release, preserving v0 compatibility while
+allowing additive packs to advance independently.
+
 Private registry implementations can define additional verification, release,
 and runtime-index artifacts. Those operational formats are not required to read
 or write a public OCL entry or context pack.

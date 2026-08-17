@@ -51,7 +51,7 @@ against treating `account.move.amount_total` as universal revenue.
 ```
 
 This local server demonstrates the real OCL tool contract using ten public
-candidate examples. It is not the commercial 171-entry verified runtime.
+candidate examples. It is not the commercial 387-entry verified runtime.
 
 See **[Using OCL](docs/USING_OCL.md)** for the integration flow, MCP calls,
 CLI commands, SDK examples, response handling, and current access boundary.

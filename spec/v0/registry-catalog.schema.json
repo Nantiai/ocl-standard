@@ -25,7 +25,8 @@
         "required": ["id", "path"],
         "properties": {
           "id": {"type": "string", "minLength": 1},
-          "path": {"type": "string", "minLength": 1}
+          "path": {"type": "string", "minLength": 1},
+          "release": {"type": "string", "minLength": 1}
         }
       }
     }

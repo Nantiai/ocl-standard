@@ -192,7 +192,7 @@
     },
     {
       "path": "spec/v0/entry.schema.json",
-      "sha256": "a9417f10018763ff0e685ef2a8242d958ab753ae53e718cc249b46171aa763ca"
+      "sha256": "3bf7cf887e166d858076544d96f1bffe66dfb630c531c37ec32329b66ab625cd"
     },
     {
       "path": "spec/v0/pack.schema.json",
@@ -203,6 +203,6 @@
       "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
     }
   ],
-  "export_id": "ocl.public.v0.3f4032d46e94",
-  "export_sha256": "3f4032d46e94eb0c24ba4ec6bbaf886615a7369f87ab6100ed9879eb21af9603"
+  "export_id": "ocl.public.v0.f98b1f724dcf",
+  "export_sha256": "f98b1f724dcff5bf0f33c69a3ec02482701689ff28042f5546f496dd27f5b217"
 }

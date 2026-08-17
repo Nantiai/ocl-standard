@@ -97,6 +97,7 @@
         "metric": {"type": "string"},
         "grain": {"type": "string"},
         "formula": {},
+        "filters": {"$ref": "#/$defs/domain"},
         "date_field": {"type": "string"},
         "currency": {},
         "limitations": {"type": "array", "items": {"type": "string"}},

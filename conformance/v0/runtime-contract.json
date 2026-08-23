@@ -1,0 +1,102 @@
+{
+  "document_kind": "ocl.runtime_contract",
+  "schema_version": "0.1.0",
+  "contract_version": "0.1.0",
+  "rest": {
+    "capabilities": {
+      "method": "GET",
+      "path": "/v1/capabilities",
+      "response": {
+        "result": {
+          "contract_version": "0.1.0",
+          "subject_kind": "trial",
+          "tools": ["get_context", "resolve_noun", "explain_field", "get_join_path", "validate_write_intent"],
+          "odoo_versions": ["19.0"],
+          "editions": ["community", "enterprise"],
+          "modules": ["account"],
+          "limits": {
+            "requests_per_minute": 30,
+            "requests_per_day": 2147483647,
+            "unique_entries_per_day": 16,
+            "unique_entries_lifetime": 64,
+            "max_token_budget": 6000
+          },
+          "expires_at": "2030-01-01T00:00:00+00:00",
+          "plan": "trial",
+          "valid_until": "2030-01-01T00:00:00+00:00",
+          "grace_until": null,
+          "delivery_modes": ["hosted_api", "hosted_mcp"],
+          "registry_release": "example-release",
+          "entries_available": 10
+        },
+        "meta": {
+          "contract_version": "0.1.0",
+          "registry_release": "example-release",
+          "authorization_note": "OCL supplies meaning and risk guidance; Odoo remains the authorization authority."
+        }
+      }
+    },
+    "operations": [
+      {
+        "name": "get_context",
+        "method": "POST",
+        "path": "/v1/get-context",
+        "request": {"question": "What is revenue?", "odoo_version": "19.0", "edition": "community", "modules": ["account"], "token_budget": 3000},
+        "result_kind": "ocl.context_pack"
+      },
+      {
+        "name": "resolve_noun",
+        "method": "POST",
+        "path": "/v1/resolve-noun",
+        "request": {"noun": "customer invoice", "odoo_version": "19.0", "edition": "community", "modules": ["account"]},
+        "result_kind": "array"
+      },
+      {
+        "name": "explain_field",
+        "method": "POST",
+        "path": "/v1/explain-field",
+        "request": {"model": "account.move", "field": "amount_total", "odoo_version": "19.0", "edition": "community", "modules": ["account"]},
+        "result_kind": "array"
+      },
+      {
+        "name": "get_join_path",
+        "method": "POST",
+        "path": "/v1/get-join-path",
+        "request": {"from_model": "sale.order", "to_model": "res.partner", "odoo_version": "19.0", "edition": "community", "modules": ["sale"]},
+        "result_kind": "array"
+      },
+      {
+        "name": "validate_write_intent",
+        "method": "POST",
+        "path": "/v1/validate-write-intent",
+        "request": {"model": "account.move", "operation": "post", "fields": ["state"], "odoo_version": "19.0", "edition": "community", "modules": ["account"]},
+        "required_result": {"authorized": false}
+      }
+    ],
+    "operation_success_envelope": {
+      "required": ["result", "meta"],
+      "meta_required": ["contract_version", "registry_release", "request_id", "limits", "authorization_note"]
+    },
+    "error_envelope": {
+      "example_status": 403,
+      "body": {"error": {"code": "module_not_entitled", "message": "modules are not entitled: ['example']"}},
+      "classes": {
+        "auth": [401],
+        "entitlement": [403],
+        "entitlement_scope": [403],
+        "client_fault": [400],
+        "throttle": [429],
+        "server": [500, 502, 503, 504]
+      }
+    }
+  },
+  "invariants": {
+    "modules_min": 1,
+    "modules_max": 10,
+    "unknown_arguments_rejected": true,
+    "provenance_fields": ["entry_id", "revision", "confidence", "verification_status", "registry_release"],
+    "authorization_authority": "odoo",
+    "write_advice_authorized_value": false,
+    "bulk_registry_operation": false
+  }
+}

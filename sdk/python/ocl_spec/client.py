@@ -58,6 +58,33 @@ class OCLClient:
             raise OCLClientError("OCL response did not contain a result")
         return payload["result"]
 
+    def capabilities(self) -> dict[str, Any]:
+        request = Request(
+            f"{self.base_url}/v1/capabilities",
+            headers={
+                "Authorization": f"Bearer {self.token}",
+                "Accept": "application/json",
+            },
+            method="GET",
+        )
+        try:
+            with urlopen(request, timeout=self.timeout) as response:
+                payload = json.load(response)
+        except HTTPError as error:
+            try:
+                payload = json.loads(error.read().decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                payload = {}
+            detail = payload.get("error", {}) if isinstance(payload, dict) else {}
+            message = detail.get("message", f"OCL HTTP {error.code}") if isinstance(detail, dict) else str(detail)
+            code = detail.get("code") if isinstance(detail, dict) else None
+            raise OCLClientError(message, status=error.code, code=code) from error
+        except URLError as error:
+            raise OCLClientError(f"OCL connection failed: {error.reason}") from error
+        if not isinstance(payload, dict) or not isinstance(payload.get("result"), dict):
+            raise OCLClientError("OCL capability response did not contain a result")
+        return payload["result"]
+
     def get_context(self, question: str, **scope: Any) -> dict[str, Any]:
         return self._call("get_context", {"question": question, **scope})
 

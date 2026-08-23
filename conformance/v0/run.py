@@ -43,10 +43,35 @@ def main() -> int:
             for error in validate_document(document, context_schema)
         )
         context_count += 1
+    runtime_count = 0
+    for item in manifest.get("runtime_contracts", []):
+        path = (HERE / item["path"]).resolve()
+        payload = path.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != item["sha256"]:
+            failures.append(f"{path.name}: content hash mismatch")
+            continue
+        contract = json.loads(payload)
+        operations = contract.get("rest", {}).get("operations", [])
+        names = {operation.get("name") for operation in operations}
+        expected = {
+            "get_context",
+            "resolve_noun",
+            "explain_field",
+            "get_join_path",
+            "validate_write_intent",
+        }
+        if contract.get("contract_version") != "0.1.0" or names != expected:
+            failures.append(f"{path.name}: runtime operation contract is incomplete")
+        if contract.get("invariants", {}).get("write_advice_authorized_value") is not False:
+            failures.append(f"{path.name}: write advice must never grant authorization")
+        runtime_count += 1
     if failures:
         print("\n".join(failures), file=sys.stderr)
         return 1
-    print(f"PASS {manifest['suite']}: {len(ids)} entries, {context_count} context pack")
+    print(
+        f"PASS {manifest['suite']}: {len(ids)} entries, "
+        f"{context_count} context pack, {runtime_count} runtime contract"
+    )
     return 0
 
 

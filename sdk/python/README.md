@@ -40,6 +40,7 @@ import os
 from ocl_spec import OCLClient
 
 ocl = OCLClient(os.environ["OCL_URL"], os.environ["OCL_TOKEN"])
+capabilities = ocl.capabilities()
 pack = ocl.get_context(
     "Which invoices are unpaid?",
     odoo_version="19.0",
@@ -48,5 +49,7 @@ pack = ocl.get_context(
 )
 ```
 
-The client is dependency-free and supports all five production operations. It
-does not include a registry or make the public examples production truth.
+The client is dependency-free and supports capability discovery plus all five
+production operations. Build each request from the returned versions, editions,
+modules and limits. It does not include a registry or make the public examples
+production truth.

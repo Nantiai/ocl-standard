@@ -29,6 +29,24 @@ export class OCLClient {
     return payload.result as T;
   }
 
+  async capabilities() {
+    const response = await fetch(`${this.baseUrl}/v1/capabilities`, {
+      headers: {
+        accept: "application/json",
+        ...(this.accessToken ? { authorization: `Bearer ${this.accessToken}` } : {}),
+      },
+    });
+    const payload = await response.json() as {
+      result?: Record<string, unknown>;
+      error?: string | { code?: string; message?: string };
+    };
+    const error = typeof payload.error === "string" ? payload.error : payload.error?.message;
+    if (!response.ok || payload.error || !payload.result) {
+      throw new Error(error ?? `OCL HTTP ${response.status}`);
+    }
+    return payload.result;
+  }
+
   getContext(question: string, options: OCLScope & Record<string, unknown> = {}) {
     return this.call("get_context", { question, ...options });
   }

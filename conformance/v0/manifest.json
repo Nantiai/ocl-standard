@@ -19,5 +19,11 @@
       "schema": "../../spec/v0/context-pack.schema.json",
       "sha256": "b293d7e132064f926c78b8018fd1eddebb16720320153a573312ac4f4ab839bb"
     }
+  ],
+  "runtime_contracts": [
+    {
+      "path": "runtime-contract.json",
+      "sha256": "69fbf71b01b39093fc4935be34faa452a4c566b166352ba468f0dca64c6f9c5f"
+    }
   ]
 }

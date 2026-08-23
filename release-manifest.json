@@ -36,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "d1640f6fe460468f2293eb9710565adfaca0a4d824a5c64fa1bbdde3cf14be14"
+      "sha256": "94fe0c246f581e0aeac7cb5c768ba64e3b4c6b78bce4fee117b83ca7c6065248"
     },
     {
       "path": "SECURITY.md",
@@ -44,15 +44,19 @@
     },
     {
       "path": "conformance/v0/README.md",
-      "sha256": "33e44cd8e31fca11b9ba0663af784e468541b38624161e97199de39d37701e5b"
+      "sha256": "552bca5bd5a810c4376279802c8e0bf58de27395628f4668f6383c8631bbec33"
     },
     {
       "path": "conformance/v0/manifest.json",
-      "sha256": "1b3a72d7c4ed46ab26145b71dc8a9ca305b9cf75febc9168dc417da1fe3dcaa0"
+      "sha256": "f5a2247be2720adddf64ba6020e65e158e0fd47887723af36cfcf81bde4d4fc4"
     },
     {
       "path": "conformance/v0/run.py",
-      "sha256": "ec63349c058b0c7afa9a8ae4d98be6e73d8314c870d1c4aa0d9cb75ab6b5c647"
+      "sha256": "8ad8fb3daa88f39faf9553d12aa3c3140478387bb85372ece9bad38ed46be2ff"
+    },
+    {
+      "path": "conformance/v0/runtime-contract.json",
+      "sha256": "69fbf71b01b39093fc4935be34faa452a4c566b166352ba468f0dca64c6f9c5f"
     },
     {
       "path": "docs/ALPHA_ACCEPTABLE_USE.md",
@@ -63,12 +67,16 @@
       "sha256": "0d560ea4007ce3137ed0c6af986054a61e6d570d154f27e908f5e319eeb5ce99"
     },
     {
+      "path": "docs/CONNECTOR_CONTRACT.md",
+      "sha256": "97aca8cbd6923f1496dc024f55d0926b8c2f59721bbf7904caa29b2b81e3fc4d"
+    },
+    {
       "path": "docs/DEVELOPER_ALPHA.md",
       "sha256": "fd840fda5224f5e22275305ca9bfc057ff704e997a15be19066734c54389abe0"
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "d33d3bfc42f5e5ae48a37735ff0cdc33bf73a24cb1c16da7db2be60264ea8d39"
+      "sha256": "67a6e7469dab7962c25081ad67c6aa94e400dd24388bd3f0af9855b7e5f430d4"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -76,11 +84,11 @@
     },
     {
       "path": "docs/REPOSITORY_BOUNDARY.md",
-      "sha256": "ef8998613158e23eef62accf9eb2396730ead45ed3986f3da5bd54a4dea05dc2"
+      "sha256": "cfb9d7e01a24fd3b2087fbcf301ea5b3ec2a605425122f30481c6f8ad4a70885"
     },
     {
       "path": "docs/USING_OCL.md",
-      "sha256": "0cb1ff43c055192140a8e66b3a3eaa6ef85c54cc12971366a47edd183ae3eea7"
+      "sha256": "4b36ec325f8565ae2932669837696dcefff32e9cb58fac4736312d7b7911ee6b"
     },
     {
       "path": "examples/v0/context-pack.example.json",
@@ -136,7 +144,7 @@
     },
     {
       "path": "sdk/python/README.md",
-      "sha256": "dcf6bf882c812b81ae5a24d75a0ef6eb4fd4f7dc4260e31c3363b32d1787e908"
+      "sha256": "e4c0a939716744139a706518c3a06626252030a7106172ee885073f80d610b0a"
     },
     {
       "path": "sdk/python/ocl_spec/__init__.py",
@@ -144,7 +152,7 @@
     },
     {
       "path": "sdk/python/ocl_spec/client.py",
-      "sha256": "beb1c128d53c12b153cb9b265167b4c9dc07d1b7c78da8f9b936440684dbf21f"
+      "sha256": "c82b01b61d3fe0b919473e00f17bcc5b7cccea8717f247994017cfbfb23b4c3a"
     },
     {
       "path": "sdk/python/ocl_spec/validator.py",
@@ -156,11 +164,11 @@
     },
     {
       "path": "sdk/python/test_client.py",
-      "sha256": "85957aae5cd7d9355a824ab6f55385a7cefe8dd19d84271eb9b02b1a8bf87489"
+      "sha256": "a584a5c1623010d5cf239a20716ecdadf0a05bccc555d3b78f814df4b2a3910a"
     },
     {
       "path": "sdk/typescript/README.md",
-      "sha256": "5c43e2825a291820444c8b9d4dc4103a103ae30aa78d7d0f48ab62b9107a7547"
+      "sha256": "44e4848c312b09f37abd1932797f8a613aa1a5bf2cba52e97d116d2b754bf8f7"
     },
     {
       "path": "sdk/typescript/package.json",
@@ -168,11 +176,11 @@
     },
     {
       "path": "sdk/typescript/src/index.ts",
-      "sha256": "cc915298ab6674852b74074e57f2e82b95c6176cba705fbaca49f7617da5ed74"
+      "sha256": "f6e0e5d97691408361ccb4051ace01e46d57b03d7ef9c479ba4b378b9521b150"
     },
     {
       "path": "spec/v0/README.md",
-      "sha256": "ddc913ae607ed2d1c30cb95e718a84a28c5ac9ce0617434d1a0490a012ccb340"
+      "sha256": "bed21e9a1a0ecbaf569957685f73fe3e4356c923349312c05a4950ae5eb8e834"
     },
     {
       "path": "spec/v0/benchmark-artifact.schema.json",
@@ -200,9 +208,9 @@
     },
     {
       "path": "spec/v0/registry-catalog.schema.json",
-      "sha256": "74fd868f3a764aa914b0502435168240118c8e8059c92c9885407fe1c4527081"
+      "sha256": "13c6d51e06d4047ad23cfb4a2fc4bac07a5d365453d6a1fbddc3229a28f44b1c"
     }
   ],
-  "export_id": "ocl.public.v0.f98b1f724dcf",
-  "export_sha256": "f98b1f724dcff5bf0f33c69a3ec02482701689ff28042f5546f496dd27f5b217"
+  "export_id": "ocl.public.v0.3205c005cfb6",
+  "export_sha256": "3205c005cfb6d993952ed595fabd41f76a419a4470d0a95ca587c500cba56302"
 }

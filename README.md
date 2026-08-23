@@ -51,10 +51,12 @@ against treating `account.move.amount_total` as universal revenue.
 ```
 
 This local server demonstrates the real OCL tool contract using ten public
-candidate examples. It is not the commercial 387-entry verified runtime.
+candidate examples. It is not the commercial 460-entry Odoo 19 runtime.
 
 See **[Using OCL](docs/USING_OCL.md)** for the integration flow, MCP calls,
 CLI commands, SDK examples, response handling, and current access boundary.
+Connector and MCP implementers should freeze against the
+**[connector runtime contract](docs/CONNECTOR_CONTRACT.md)** and its conformance fixture.
 Hosted runtime clients can follow the **[verified alpha call guide](docs/HOSTED_ALPHA.md)**.
 Developers can first **[try one live verified decision](https://api.context.nanti.ai/demo/revenue)**,
 then **[start a scoped seven-day trial](https://api.context.nanti.ai/request-access)**
@@ -112,6 +114,7 @@ decides which verification policy is sufficient for a release claim.
 - [Format v0](spec/v0/README.md)
 - [Quickstart](docs/QUICKSTART.md)
 - [Using OCL](docs/USING_OCL.md)
+- [Connector runtime contract](docs/CONNECTOR_CONTRACT.md)
 - [External developer alpha](docs/DEVELOPER_ALPHA.md)
 - [Governance](GOVERNANCE.md)
 - [Contributing](CONTRIBUTING.md)

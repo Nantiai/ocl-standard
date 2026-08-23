@@ -5,10 +5,11 @@ connector and it never grants Odoo authorization.
 
 ```text
 1. User asks an Odoo question
-2. Agent calls OCL get_context
-3. OCL returns relevant meaning, warnings, unknowns, and provenance
-4. Agent clarifies when required
-5. Agent uses its existing Odoo connector under the user's real permissions
+2. Client discovers its exact scope with OCL capabilities
+3. Agent calls OCL get_context
+4. OCL returns relevant meaning, warnings, unknowns, and provenance
+5. Agent clarifies when required
+6. Agent uses its existing Odoo connector under the user's real permissions
 ```
 
 ## Choose an integration
@@ -138,7 +139,7 @@ descriptions, then let Odoo enforce ACLs, record rules, and business methods.
 ## What is usable today
 
 The public repository is usable today for format adoption, conformance,
-integration development, and a ten-example MCP demonstration. Invited
-developers can also call the private 44-entry verified runtime through
+integration development, and a ten-example MCP demonstration. Authorized
+developers can also call the private 460-entry Odoo 19 runtime through
 request-scoped REST or remote MCP. The public examples must not be presented as
 production ontology coverage.

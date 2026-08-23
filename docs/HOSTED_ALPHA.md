@@ -17,7 +17,7 @@ can create a seven-day trial immediately and receive:
 
 Try the fixed, no-login
 [revenue decision demo](https://api.context.nanti.ai/demo/revenue), then use
-the native [email-only access form](https://api.context.nanti.ai/request-access).
+the native [one-minute access form](https://api.context.nanti.ai/request-access).
 Do not include customer data or confidential database information. Access is
 subject to the [External Alpha Acceptable Use](ALPHA_ACCEPTABLE_USE.md)
 boundary.
@@ -37,10 +37,9 @@ remain fallback paths.
 
 No OCL package or local server is required for remote MCP.
 
-Automatic trials have no request-count meter during the seven-day evaluation.
-They include both Odoo 19 editions and all released runtime modules. A
-30-request/minute burst guard, 16-distinct-entry daily guard and 6,000-token
-context ceiling remain security boundaries. The service rejects bulk
+Automatic trials allow 10 requests/minute, 100/day, 16 distinct released
+entries/day, and context packs up to 4,000 requested tokens. They are limited
+to the selected Odoo 19 edition and module families. The service rejects bulk
 registry extraction, wildcard scope, and requests outside the entitlement.
 Submitted access details are removed after 90 days, and keyed abuse-control
 fingerprints after 24 hours. The raw trial token is never stored; its hash and
@@ -94,6 +93,14 @@ curl "$OCL_URL/v1/get-context" \
 The five operations are `get_context`, `resolve_noun`, `explain_field`,
 `get_join_path`, and `validate_write_intent`.
 
+Discover the exact scope and limits of the current key before constructing
+requests:
+
+```bash
+curl "$OCL_URL/v1/capabilities" \
+  -H "Authorization: Bearer $OCL_TOKEN"
+```
+
 ## Python
 
 ```python
@@ -132,7 +139,9 @@ control.
 
 The alpha returns the smallest safe context that fits the request and
 entitlement. It has no registry-list or bulk-export operation. Bulk enumeration
-and wildcard requests are rejected, and usage is limited per key.
+and wildcard requests are rejected, and usage is limited per key. Trial
+credentials also have a lifetime distinct-entry ceiling, so waiting for a daily
+reset cannot turn evaluation access into a registry export.
 
 Readable context returned to an authorized developer can still be copied. The
 service controls practical extraction through scope, rate, distinct-entry,

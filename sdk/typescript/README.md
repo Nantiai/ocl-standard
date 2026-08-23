@@ -1,7 +1,9 @@
 # TypeScript client shape
 
-This alpha source package defines the five production OCL operation shapes:
+This alpha source package defines capability discovery and the five production
+OCL operation shapes:
 
+- `capabilities`;
 - `getContext`;
 - `resolveNoun`;
 - `explainField`;
@@ -20,6 +22,7 @@ const ocl = new OCLClient(
   "https://api.context.nanti.ai",
   process.env.OCL_TOKEN!,
 );
+const capabilities = await ocl.capabilities();
 const pack = await ocl.getContext("Which invoices are unpaid?", {
   odoo_version: "19.0",
   edition: "community",

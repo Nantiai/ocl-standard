@@ -19,10 +19,6 @@ draft contracts and can change until independent implementations exercise them.
   three-arm evaluation artifacts.
 - `registry-catalog.schema.json`: composition of independently released packs.
 
-Catalog pack items may optionally pin their own `release`. Readers that do not
-see this field use the catalog-level release, preserving v0 compatibility while
-allowing additive packs to advance independently.
-
 Private registry implementations can define additional verification, release,
 and runtime-index artifacts. Those operational formats are not required to read
 or write a public OCL entry or context pack.
@@ -69,3 +65,9 @@ detail for discriminators, join paths/cardinality, write approvals and failure
 boundaries, and security access/safe-behavior notes. Existing `0.1.0` entries
 remain valid and readers may ignore these optional fields. The required core
 shape and write-policy risk enum are unchanged.
+
+Migration note, 2026-08-17: a registry catalog pack item may include an
+optional `release`. Readers use that value as the expected pack release and
+fall back to the catalog-level `release` when it is absent. Existing catalogs
+remain valid; this permits independently locked additive packs without
+weakening exact release checks.

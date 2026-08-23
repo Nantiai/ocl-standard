@@ -34,6 +34,17 @@ class OCLClientTests(unittest.TestCase):
         self.assertEqual("What is revenue?", json.loads(request.data)["question"])
         self.assertEqual({"facts": []}, result)
 
+    def test_capabilities_discovers_the_key_scope_with_get(self) -> None:
+        client = OCLClient("https://context.example/", "alpha-secret")
+        expected = {"contract_version": "0.1.0", "modules": ["account"]}
+        with patch("ocl_spec.client.urlopen", return_value=FakeResponse({"result": expected})) as call:
+            result = client.capabilities()
+        request = call.call_args.args[0]
+        self.assertEqual("GET", request.method)
+        self.assertEqual("https://context.example/v1/capabilities", request.full_url)
+        self.assertEqual("Bearer alpha-secret", request.get_header("Authorization"))
+        self.assertEqual(expected, result)
+
 
 if __name__ == "__main__":
     unittest.main()

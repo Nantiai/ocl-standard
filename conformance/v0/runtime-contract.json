@@ -36,6 +36,18 @@
         }
       }
     },
+    "activation": {
+      "method": "POST",
+      "path": "/v1/activate",
+      "response_schema": "spec/v0/activate-response.schema.json",
+      "notes": "One-time activation code exchange. The returned runtime token is shown once."
+    },
+    "lifecycle": {
+      "method": "GET",
+      "path": "/v1/lifecycle",
+      "response_schema": "spec/v0/lifecycle-response.schema.json",
+      "notes": "Requires a tenant credential and remains available when the subscription is lapsed or canceled."
+    },
     "operations": [
       {
         "name": "get_context",

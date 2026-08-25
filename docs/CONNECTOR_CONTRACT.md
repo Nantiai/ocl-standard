@@ -6,6 +6,8 @@ before requesting context instead of guessing module names or limits.
 
 ```text
 GET  /v1/capabilities
+POST /v1/activate
+GET  /v1/lifecycle
 POST /v1/get-context
 POST /v1/resolve-noun
 POST /v1/explain-field
@@ -20,6 +22,13 @@ POST /v1/validate-write-intent
 3. Send only one to ten relevant module identifiers with each operation.
 4. Preserve required clarification, warnings, unknowns, and provenance.
 5. Execute through Odoo under the real user's access rights and record rules.
+
+Complete integrations exchange a one-time code at `/v1/activate`, store the
+returned tenant runtime token, and use that same token for REST, remote MCP and
+`/v1/lifecycle`. Lifecycle remains readable after lapse so a connector can show
+honest status and dates while continuing its local execution path. The frozen
+response schemas are `spec/v0/activate-response.schema.json` and
+`spec/v0/lifecycle-response.schema.json`.
 
 Do not send record values, record IDs, credentials, user identities, or raw
 questions that contain customer data. OCL returns meaning and risk guidance;

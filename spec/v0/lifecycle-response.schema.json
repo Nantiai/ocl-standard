@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context.nanti.ai/spec/v0/lifecycle-response.schema.json",
+  "title": "OCL Complete lifecycle response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["result"],
+  "properties": {
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_version", "tenant_id", "tenant_status", "credential", "subscription", "entitlement", "access"],
+      "properties": {
+        "contract_version": {"const": "0.1.0"},
+        "tenant_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"},
+        "tenant_status": {"enum": ["active", "suspended"]},
+        "credential": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["key_id", "role"],
+          "properties": {
+            "key_id": {"type": "string", "pattern": "^[A-Za-z0-9-]{8,32}$"},
+            "role": {"enum": ["tenant_admin", "tenant_reviewer", "tenant_runtime", "tenant_collector"]}
+          }
+        },
+        "subscription": {"$ref": "#/$defs/subscription"},
+        "entitlement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["revision", "plan", "odoo_version", "edition", "runtime_modules", "delivery_modes", "valid_until", "entitlement_sha256"],
+          "properties": {
+            "revision": {"type": "integer", "minimum": 0},
+            "plan": {"enum": ["design_partner", "business", "license"]},
+            "odoo_version": {"const": "19.0"},
+            "edition": {"enum": ["community", "enterprise"]},
+            "runtime_modules": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+            "delivery_modes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["hosted", "signed_cache", "embedding"]}},
+            "valid_until": {"$ref": "#/$defs/nullableTime"},
+            "entitlement_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+          }
+        },
+        "access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hosted_context", "reason"],
+          "properties": {
+            "hosted_context": {"type": "boolean"},
+            "reason": {"enum": ["available", "tenant_suspended", "subscription_inactive"]}
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nullableTime": {"type": ["string", "null"], "format": "date-time"},
+    "subscription": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tenant_id", "product", "size_band", "billing_period", "state", "trial_started_at", "trial_ends_at", "current_period_ends_at", "past_due_at", "grace_ends_at", "lapsed_at", "retained_until", "updated_at", "revision", "subscription_sha256"],
+      "properties": {
+        "tenant_id": {"type": "string"},
+        "product": {"const": "complete"},
+        "size_band": {"enum": [20, 100, 300]},
+        "billing_period": {"enum": ["annual", "monthly", "grant"]},
+        "state": {"enum": ["pending_trial", "trialing", "active", "past_due", "grace", "lapsed", "canceled"]},
+        "trial_started_at": {"$ref": "#/$defs/nullableTime"},
+        "trial_ends_at": {"$ref": "#/$defs/nullableTime"},
+        "current_period_ends_at": {"$ref": "#/$defs/nullableTime"},
+        "past_due_at": {"$ref": "#/$defs/nullableTime"},
+        "grace_ends_at": {"$ref": "#/$defs/nullableTime"},
+        "lapsed_at": {"$ref": "#/$defs/nullableTime"},
+        "retained_until": {"$ref": "#/$defs/nullableTime"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "revision": {"type": "integer", "minimum": 0},
+        "subscription_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

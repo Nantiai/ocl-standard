@@ -48,7 +48,7 @@
     },
     {
       "path": "conformance/v0/manifest.json",
-      "sha256": "f5a2247be2720adddf64ba6020e65e158e0fd47887723af36cfcf81bde4d4fc4"
+      "sha256": "417184d98dc877746411d4059d382f349f2a6c2be0ad10078bead74fafb0dccb"
     },
     {
       "path": "conformance/v0/run.py",
@@ -56,7 +56,7 @@
     },
     {
       "path": "conformance/v0/runtime-contract.json",
-      "sha256": "69fbf71b01b39093fc4935be34faa452a4c566b166352ba468f0dca64c6f9c5f"
+      "sha256": "2fd57187ee15b2873ba9708f05d2476fc65c5b06d9450a169298df32c50f824f"
     },
     {
       "path": "docs/ALPHA_ACCEPTABLE_USE.md",
@@ -68,7 +68,7 @@
     },
     {
       "path": "docs/CONNECTOR_CONTRACT.md",
-      "sha256": "97aca8cbd6923f1496dc024f55d0926b8c2f59721bbf7904caa29b2b81e3fc4d"
+      "sha256": "6b5eb08fd3b3eb619656ab05c1f8a3aef6a0be84482687523d625fb3ae130a1b"
     },
     {
       "path": "docs/DEVELOPER_ALPHA.md",
@@ -76,7 +76,7 @@
     },
     {
       "path": "docs/HOSTED_ALPHA.md",
-      "sha256": "67a6e7469dab7962c25081ad67c6aa94e400dd24388bd3f0af9855b7e5f430d4"
+      "sha256": "9362f78af683909386ed3b9ec0770f790d478490da22fc04fd1760ef2b4a79a5"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -180,7 +180,11 @@
     },
     {
       "path": "spec/v0/README.md",
-      "sha256": "bed21e9a1a0ecbaf569957685f73fe3e4356c923349312c05a4950ae5eb8e834"
+      "sha256": "e7b1829e5c910787eb6a4f3296df2656bb46d324dac57432c9fcc1715909be4f"
+    },
+    {
+      "path": "spec/v0/activate-response.schema.json",
+      "sha256": "7bc29c661e038965126dc3005834610688fe096bdd7d1c0114498a348597891e"
     },
     {
       "path": "spec/v0/benchmark-artifact.schema.json",
@@ -203,6 +207,10 @@
       "sha256": "3bf7cf887e166d858076544d96f1bffe66dfb630c531c37ec32329b66ab625cd"
     },
     {
+      "path": "spec/v0/lifecycle-response.schema.json",
+      "sha256": "ae2b4194f9979dcacb765d1e54da839d544906a835243936344187f443098e4a"
+    },
+    {
       "path": "spec/v0/pack.schema.json",
       "sha256": "e17cdbbc246cc7c5ce9595ab31bd2c6716057570e2c11b53538e58987b8e8955"
     },
@@ -211,6 +219,6 @@
       "sha256": "13c6d51e06d4047ad23cfb4a2fc4bac07a5d365453d6a1fbddc3229a28f44b1c"
     }
   ],
-  "export_id": "ocl.public.v0.3205c005cfb6",
-  "export_sha256": "3205c005cfb6d993952ed595fabd41f76a419a4470d0a95ca587c500cba56302"
+  "export_id": "ocl.public.v0.289a1c481bc1",
+  "export_sha256": "289a1c481bc10eb8c5d996b36ae50fd9b6737063996080fe045ea98f8e06d72e"
 }

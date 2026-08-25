@@ -11,7 +11,7 @@ can create a seven-day trial immediately and receive:
 
 - an HTTPS base URL;
 - a scoped, expiring Bearer token;
-- enabled operations and Odoo module scope;
+- enabled operations and every released Odoo 19 module context;
 - request, context-budget, and distinct-entry allowances;
 - no production SLA during alpha.
 
@@ -37,9 +37,10 @@ remain fallback paths.
 
 No OCL package or local server is required for remote MCP.
 
-Automatic trials allow 10 requests/minute, 100/day, 16 distinct released
-entries/day, and context packs up to 4,000 requested tokens. They are limited
-to the selected Odoo 19 edition and module families. The service rejects bulk
+Automatic trials have no request-count meter, allow 30 requests/minute, 16
+distinct released entries/day, 64 lifetime distinct entries, and context packs
+up to 6,000 requested tokens. They cover both Odoo 19 editions and every
+released module family. The service rejects bulk
 registry extraction, wildcard scope, and requests outside the entitlement.
 Submitted access details are removed after 90 days, and keyed abuse-control
 fingerprints after 24 hours. The raw trial token is never stored; its hash and

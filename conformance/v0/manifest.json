@@ -23,7 +23,7 @@
   "runtime_contracts": [
     {
       "path": "runtime-contract.json",
-      "sha256": "69fbf71b01b39093fc4935be34faa452a4c566b166352ba468f0dca64c6f9c5f"
+      "sha256": "2fd57187ee15b2873ba9708f05d2476fc65c5b06d9450a169298df32c50f824f"
     }
   ]
 }

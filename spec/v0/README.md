@@ -13,6 +13,9 @@ draft contracts and can change until independent implementations exercise them.
 - `pack.schema.json`: a deterministic collection of entry files and source
   snapshots.
 - `context-pack.schema.json`: request-scoped output for AI consumers.
+- `activate-response.schema.json`: one-time Complete activation response.
+- `lifecycle-response.schema.json`: tenant subscription and hosted-access
+  lifecycle response, including lapsed access reporting.
 - `benchmark-case.schema.json`: one independently scored evaluation case.
 - `benchmark-suite.schema.json`: a content-hashed sealed set of benchmark cases.
 - `benchmark-artifact.schema.json`: prepared prompts, raw model runs, and scored

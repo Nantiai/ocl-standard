@@ -140,6 +140,6 @@ descriptions, then let Odoo enforce ACLs, record rules, and business methods.
 
 The public repository is usable today for format adoption, conformance,
 integration development, and a ten-example MCP demonstration. Authorized
-developers can also call the private 460-entry Odoo 19 runtime through
+developers can also call the private Odoo 19 runtime through
 request-scoped REST or remote MCP. The public examples must not be presented as
 production ontology coverage.

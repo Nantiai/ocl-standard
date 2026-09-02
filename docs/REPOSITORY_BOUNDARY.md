@@ -14,7 +14,7 @@ The open standard and the commercial truth registry have different jobs.
 
 ## Not included here
 
-- the 460-entry released Odoo 19 commercial registry;
+- the released Odoo 19 commercial registry;
 - release locks, runtime indexes, source fingerprints, or verification matrices;
 - candidate-generation or ranking logic;
 - production context assembly;

@@ -1,0 +1,41 @@
+name: Publish to MCP Registry
+
+# Publishes server.json to the official MCP Registry
+# (registry.modelcontextprotocol.io) under the io.github.nantiai namespace.
+# Authentication is GitHub Actions OIDC: because this workflow runs inside the
+# Nantiai/ocl-standard repository, the registry derives the namespace from the
+# repository owner and grants io.github.nantiai/* automatically. No PAT, no
+# stored secret, no interactive login. The OCI image it references
+# (ghcr.io/nantiai/ocl-examples) is already built, public, and carries the
+# io.modelcontextprotocol.server.name ownership label.
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write   # required for the OIDC token
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mcp-publisher
+        run: |
+          curl -sL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz" \
+            | tar -xz mcp-publisher
+          ./mcp-publisher --help >/dev/null
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate
+
+      - name: Authenticate (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc --registry=https://registry.modelcontextprotocol.io
+
+      - name: Publish
+        run: ./mcp-publisher publish
